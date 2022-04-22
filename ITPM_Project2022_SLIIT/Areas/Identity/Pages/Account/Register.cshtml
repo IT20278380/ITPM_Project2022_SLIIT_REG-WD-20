@@ -5,51 +5,84 @@
     Layout = "~/Areas/Identity/Pages/_LogUiLayout.cshtml";
 }
 
-<h1>@ViewData["Title"]</h1>
+<h2>@ViewData["Title"]</h2>
 
-        <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+  <div class="content">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <img src="~/Images/undraw_remotely_2j6y.svg" alt="Image" class="img-fluid">
+        </div>
+        <div class="col-md-6 contents">
+          <div class="row justify-content-center">
+            <div class="col-md-8">
 
-            <div asp-validation-summary="All" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Input.FullName"></label>
-                <input asp-for="Input.FullName" class="form-control" />
-                <span asp-validation-for="Input.FullName" class="text-danger"></span>
+            <div class="wrapper">
+                <div class="logo"> <ion-icon class="logo0"name="person"></ion-icon> </div>
+                <div class="text-center mt-4 name TfontT"> <b>Air World</b> </div>
+                <form class="p-3 mt-3" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+
+                      <div class="row">
+                        <div class="col-sm-5 col-md-6">
+                            <div class="form-group">
+                                <li><label asp-for="Input.FullName"></label></li>
+                                <input asp-for="Input.FullName" class="form-control inputt" placeholder="Full Name"/>
+                                <span asp-validation-for="Input.FullName" class="far fa-user"></span>
+                            </div>
+                            <div class="form-group">
+                                <li><label asp-for="Input.UserName"></label></li>
+                                <input asp-for="Input.UserName" class="form-control inputt" placeholder="User Name"/>
+                                <span asp-validation-for="Input.UserName" class="far fa-user" ></span>
+                            </div>
+                            <div class="form-group">
+                                <li><label asp-for="Input.Country"></label></li>
+                                <input asp-for="Input.Country" class="form-control inputt" placeholder="Country"/>
+                                <span asp-validation-for="Input.Country" class="far fa-user" ></span>
+                            </div>
+                            <div class="form-group">
+                                <li><label asp-for="Input.PhoneNumber"></label></li>
+                                <input asp-for="Input.PhoneNumber" class="form-control inputt" placeholder="Phone Number"/>
+                                <span asp-validation-for="Input.PhoneNumber" class="far fa-user"></span>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">
+                            <div class="form-group">
+                                <li><label asp-for="Input.Email"></label></li>
+                                <input asp-for="Input.Email" class="form-control inputt" placeholder="Email"/>
+                                <span asp-validation-for="Input.Email" class="far fa-user"></span>
+                            </div>
+                            <div class="form-group">
+                                <li><label asp-for="Input.Password"></label></li>
+                                <input asp-for="Input.Password" class="form-control inputt" placeholder="Password"/>
+                                <span asp-validation-for="Input.Password" class="far fa-user"></span>
+                            </div>
+                            <div class="form-group">
+                                <li><label asp-for="Input.ConfirmPassword"></label></li>
+                                <input asp-for="Input.ConfirmPassword" class="form-control inputt" placeholder="Confirm Passoward"/>
+                                <span asp-validation-for="Input.ConfirmPassword" class="far fa-user"></span>
+                            </div>  <hr/>
+                            <center>
+                            <button type="submit" class="btn btn-outline-primary">Register Now</button>
+                            </center>
+                        </div>
+                      </div>
+                </form>
             </div>
-            <div class="form-group">
-                <label asp-for="Input.UserName"></label>
-                <input asp-for="Input.UserName" class="form-control" />
-                <span asp-validation-for="Input.UserName" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Input.Country"></label>
-                <input asp-for="Input.Country" class="form-control" />
-                <span asp-validation-for="Input.Country" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Input.PhoneNumber"></label>
-                <input asp-for="Input.PhoneNumber" class="form-control" />
-                <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Input.Email"></label>
-                <input asp-for="Input.Email" class="form-control" />
-                <span asp-validation-for="Input.Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Input.Password"></label>
-                <input asp-for="Input.Password" class="form-control" />
-                <span asp-validation-for="Input.Password" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Input.ConfirmPassword"></label>
-                <input asp-for="Input.ConfirmPassword" class="form-control" />
-                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
-            </div>
-            <button type="submit" class="btn btn-primary">Register</button>
-        </form>
+          </div>
+          
+        </div>
+        
+      </div>
+    </div>
+  </div>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
     
-
-
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }
