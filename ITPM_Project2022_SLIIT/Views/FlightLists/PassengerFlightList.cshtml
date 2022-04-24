@@ -1,54 +1,55 @@
 ﻿@model IEnumerable<ITPM_Project2022_SLIIT.Models.FlightList>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "PassengerFlightList";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<h2>Air Line Flight List</h2><br/><br/>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<form method="get" asp-action="Index">
-    <input type="search" value="@ViewData["GetFlightDetails"]" name="flightSearch"/>
-    <input type="submit" value="Search">
+<form method="get" asp-action="PassengerFlightList">
+    <div class="input-group container">
+      <button class="btn btn-outline-info" type="submit" id="button-addon1"> <b>Search Flight Destination</b> </button>
+      <input type="search" value="@ViewData["GetFlightDetails"]" name="flightSearch" class="form-control" placeholder="Enter Destination Country">
+    </div>
 </form>
 
-<table class="table">
+<div class="mt-5 px-2">
+<table class="table-responsive">
     <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.FlightName)
+        <tr class="bg-light tanheight">
+            <th scope="col" width="10%">
+                Flight Name
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Date)
+            <th scope="col" width="10%">
+                Date
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Time)
+            <th scope="col" width="5%">
+                Time
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Destination)
+            <th scope="col" width="10%">
+                Destination
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FirstClassPrice)
+            <th scope="col" width="10%">
+                First Class (Rs:)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BsClassPrice)
+            <th scope="col" width="10%">
+                Bussiness Class (Rs:)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PriEconomyClassPrice)
+            <th scope="col" width="10%">
+                Pri Economy (Rs:)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EconomyClassPrice)
+            <th scope="col" width="10%">
+                Economy Class (Rs:)
             </th>
-            <th></th>
+            <th scope="col" width="10%">
+                Book Now
+            </th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
-    
-        <tr>
+<tr class="tanheight0">
             <form  asp-action="CreateBL">
             <td>
                 @Html.DisplayFor(modelItem => item.FlightName)
@@ -79,13 +80,11 @@
                 @Html.DisplayFor(modelItem => item.EconomyClassPrice)
             </td>
             <td>
-                <input type="submit" value="Book Now" class="btn btn-primary" />
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <input type="submit" value="Book Now" class="btn btn-outline-primary" />
             </td>         
             </form>
         </tr>
-}   
+}
     </tbody>
 </table>
+</div>

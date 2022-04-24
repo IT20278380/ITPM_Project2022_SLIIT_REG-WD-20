@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ITPM_Project2022_SLIIT.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ITPM_Project2022_SLIIT.Controllers
 {
@@ -19,9 +20,35 @@ namespace ITPM_Project2022_SLIIT.Controllers
         }
 
         // GET: FlightLists
-        public async Task<IActionResult> Index()
+        /*public async Task<IActionResult> Index()
         {
             return View(await _context.FlightList.ToListAsync());
+        }*/
+
+        //Search
+        public async Task<IActionResult> Index(string flightSearch)
+        {
+            ViewData["GetFlightDetails"] = flightSearch;
+
+            var flightQuery = from flight in _context.FlightList select flight;
+            if (!string.IsNullOrEmpty(flightSearch))
+            {
+                flightQuery = flightQuery.Where(flight => flight.Destination.Contains(flightSearch));
+            }
+            return View(await flightQuery.AsNoTracking().ToListAsync());
+        }
+
+        //Pasenger View
+        public async Task<IActionResult> PassengerFlightList(string flightSearch)
+        {
+            ViewData["GetFlightDetails"] = flightSearch;
+
+            var flightQuery = from flight in _context.FlightList select flight;
+            if (!string.IsNullOrEmpty(flightSearch))
+            {
+                flightQuery = flightQuery.Where(flight => flight.Destination.Contains(flightSearch));
+            }
+            return View(await flightQuery.AsNoTracking().ToListAsync());
         }
 
         // GET: FlightLists/Details/5
@@ -33,7 +60,7 @@ namespace ITPM_Project2022_SLIIT.Controllers
             }
 
             var flightList = await _context.FlightList
-                .FirstOrDefaultAsync(m => m.id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (flightList == null)
             {
                 return NotFound();
@@ -85,9 +112,9 @@ namespace ITPM_Project2022_SLIIT.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id,FlightName,Date,Time,Destination,FirstClassPrice,BsClassPrice,PriEconomyClassPrice,EconomyClassPrice")] FlightList flightList)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,FlightName,Date,Time,Destination,FirstClassPrice,BsClassPrice,PriEconomyClassPrice,EconomyClassPrice")] FlightList flightList)
         {
-            if (id != flightList.id)
+            if (id != flightList.Id)
             {
                 return NotFound();
             }
@@ -101,7 +128,7 @@ namespace ITPM_Project2022_SLIIT.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!FlightListExists(flightList.id))
+                    if (!FlightListExists(flightList.Id))
                     {
                         return NotFound();
                     }
@@ -124,7 +151,7 @@ namespace ITPM_Project2022_SLIIT.Controllers
             }
 
             var flightList = await _context.FlightList
-                .FirstOrDefaultAsync(m => m.id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (flightList == null)
             {
                 return NotFound();
@@ -146,7 +173,21 @@ namespace ITPM_Project2022_SLIIT.Controllers
 
         private bool FlightListExists(int id)
         {
-            return _context.FlightList.Any(e => e.id == id);
+            return _context.FlightList.Any(e => e.Id == id);
+        }
+        /*-----------------------------------------------------------------------------------*/
+        public async Task<IActionResult> CreateBL([Bind("Id,PassengerName,PassportNumber,Email,MobileNumber,FlightName,Destination,Date,Time,Class,RequiredSeat,PaidPrice,SeatNumber,GateNumber,TicketNumber,PaidRecipt")] BookTickets bookTickets)
+        {
+
+            if (ModelState.IsValid)
+            {
+                _context.Add(bookTickets);
+                await _context.SaveChangesAsync();
+
+                var bt = _context.BookTickets.Max(B => B.Id);
+                return RedirectToAction("Edit", "BookTickets", new {id = bt});
+            }
+            return View(bookTickets);
         }
     }
 }
