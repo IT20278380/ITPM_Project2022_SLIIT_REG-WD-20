@@ -1,0 +1,61 @@
+﻿@model IEnumerable<ITPM_Project2022_SLIIT.Models.BsClassFood>
+
+@{
+    ViewData["Title"] = "Status";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Status</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FoodName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FoodStatus)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+         <tr>
+            <form  asp-action="CreateBL">
+            <td>
+                @Html.DisplayFor(modelItem => item.FoodName)
+                <input type="hidden" value="@item.FoodName" name="FoodName" class="form-control" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Image)
+                <input type="hidden" value="@item.Image" name="Image" class="form-control" />
+                <img src="~/Images/@item.Image" class="rounded-circle" width="50" height="50" asp-append-version="true" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+                <input type="hidden" value="@item.Price" name="Price" class="form-control" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FoodStatus)
+            </td>
+            <td>
+                <input type="submit" value="Order Now" class="btn btn-primary" />
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+            </form>
+        </tr>
+}
+    </tbody>
+</table>
