@@ -3,14 +3,16 @@ using ITPM_Project2022_SLIIT.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ITPM_Project2022_SLIIT.Migrations.ATMSDb
 {
     [DbContext(typeof(ATMSDbContext))]
-    partial class ATMSDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220405054021_initATMS1")]
+    partial class initATMS1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -181,39 +183,6 @@ namespace ITPM_Project2022_SLIIT.Migrations.ATMSDb
                     b.HasKey("Id");
 
                     b.ToTable("FlightList");
-                });
-
-            modelBuilder.Entity("ITPM_Project2022_SLIIT.Models.OrderList", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Date")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FlightName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FoodName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Image")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<float>("Price")
-                        .HasColumnType("real");
-
-                    b.Property<string>("SeatNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Time")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("OrderList");
                 });
 
             modelBuilder.Entity("ITPM_Project2022_SLIIT.Models.PriEconomyClassFood", b =>

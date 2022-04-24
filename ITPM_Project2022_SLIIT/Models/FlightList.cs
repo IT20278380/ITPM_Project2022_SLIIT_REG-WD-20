@@ -2,7 +2,7 @@
 {
     public class FlightList
     {
-        public int id { get; set; }
+        public int Id { get; set; }
         public string FlightName { get; set; }
         public string Date { get; set; }
         public string Time { get; set; }
