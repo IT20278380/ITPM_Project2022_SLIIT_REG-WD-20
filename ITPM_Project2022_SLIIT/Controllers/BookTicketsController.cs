@@ -24,79 +24,6 @@ namespace ITPM_Project2022_SLIIT.Controllers
             _env = env;
         }
 
-        // GET: BookTickets
-        public async Task<IActionResult> Index()
-        {
-            return View(await _context.BookTickets.ToListAsync());
-        }
-
-        // GET: BookTickets/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var bookTickets = await _context.BookTickets
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (bookTickets == null)
-            {
-                return NotFound();
-            }
-
-            return View(bookTickets);
-        }
-
-        // GET: BookTickets/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: BookTickets/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Create([Bind("Id,PassengerName,PassportNumber,Email,MobileNumber,FlightName,Destination,Date,Time,Class,RequiredSeat,PaidPrice,SeatNumber,GateNumber,TicketNumber,PaidRecipt")] BT bt)
-        { 
-            BookTickets bookTickets = new BookTickets();
-
-            bookTickets.PassengerName = bt.PassengerName;
-            bookTickets.PassportNumber = bt.PassportNumber;
-            bookTickets.Email = bt.Email;
-            bookTickets.MobileNumber = bt.MobileNumber;
-            bookTickets.FlightName = bt.FlightName;
-            bookTickets.Destination = bt.Destination;
-            bookTickets.Date = bt.Date;
-            bookTickets.Time = bt.Time;
-            bookTickets.Class = bt.Class;
-            bookTickets.RequiredSeat = bt.RequiredSeat;
-            bookTickets.PaidPrice = bt.PaidPrice;
-            bookTickets.SeatNumber = bt.SeatNumber;
-            bookTickets.GateNumber = bt.GateNumber;
-            bookTickets.TicketNumber = bt.TicketNumber;
-
-            if (bt.PaidRecipt != null)
-            {
-                var uploads = Path.Combine(_env.WebRootPath, "Images");
-                var filePath = Path.Combine(uploads, bt.PaidRecipt.FileName);
-
-                bt.PaidRecipt.CopyTo(new FileStream(filePath, FileMode.Create));
-                bookTickets.PaidRecipt = bt.PaidRecipt.FileName;
-            }
-            if (ModelState.IsValid)
-            {
-                _context.Add(bookTickets);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-
-            return NotFound();
-        }
-
-
         // GET: BookTickets/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -120,6 +47,8 @@ namespace ITPM_Project2022_SLIIT.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,PassengerName,PassportNumber,Email,MobileNumber,FlightName,Destination,Date,Time,Class,RequiredSeat,PaidPrice,SeatNumber,GateNumber,TicketNumber,PaidRecipt")] BT bt)
         {
+            int save = 0;
+
             if (id != bt.Id)
             {
                 return NotFound();
@@ -155,7 +84,7 @@ namespace ITPM_Project2022_SLIIT.Controllers
                 try
                 {
                     _context.Update(bookTickets);
-                    await _context.SaveChangesAsync();
+                    save = await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -168,38 +97,17 @@ namespace ITPM_Project2022_SLIIT.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                if (save > 0) {
+                    TempData["message"] = "Tickets Is Booking !";
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    TempData["message"] = "Ticket Booking Error !";
+                    return RedirectToAction("Edit", "BookTickets");
+                }
             }
             return View(bookTickets);
-        }
-
-        // GET: BookTickets/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var bookTickets = await _context.BookTickets
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (bookTickets == null)
-            {
-                return NotFound();
-            }
-
-            return View(bookTickets);
-        }
-
-        // POST: BookTickets/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var bookTickets = await _context.BookTickets.FindAsync(id);
-            _context.BookTickets.Remove(bookTickets);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
         }
 
         private bool BookTicketsExists(int id)

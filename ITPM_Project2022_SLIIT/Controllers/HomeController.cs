@@ -52,7 +52,8 @@ namespace ITPM_Project2022_SLIIT.Controllers
         {
             if (PassportNumber == null)
             {
-                return NotFound();
+                TempData["message"] = "Enter Passport Number !";
+                return RedirectToAction("Index", "Home");
             }
 
             var bookTickets = await _context.BookTickets
@@ -61,7 +62,8 @@ namespace ITPM_Project2022_SLIIT.Controllers
             System.Diagnostics.Debug.WriteLine(bookTickets);
             if (bookTickets == null)
             {
-                return NotFound();
+                TempData["message"] = "Wrong Passport Number !";
+                return RedirectToAction("Index", "Home");
             }
             if(bookTickets.Class == "First Class")
             {

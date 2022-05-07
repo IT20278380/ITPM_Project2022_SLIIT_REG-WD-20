@@ -3,12 +3,15 @@
 @{
     ViewData["Title"] = "Home Page";
 }
+@if (TempData["message"] != null)
+{
+    <script>alert('@TempData["message"]');</script>
+}
 <div class="container">
   <div class="row">
     <div class="col align-self-center homemaindiv">
         <h2>Book Ticket Here</h2>
-
-        <img id="image1" src="~/Images/aa.png"/>
+        <img id="image1" src="~/Images/air.png"/>
         <center>
         <a class="btn btn-outline-info" id="booknow" asp-action="BookNow">Book Now</a>
         </center>

@@ -5,33 +5,42 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<script src="~/js/site.js" type="text/javascript"></script>
+
 <h2>Enter Your Details For Booking</h2><br/><br/>
 
+@if (TempData["message"] != null)
+{
+    <script>alert('@TempData["message"]');</script>
+}
+
 <div class="container">
-<form asp-action="Edit" enctype="multipart/form-data">
+<form onsubmit="validateForm(event)" asp-action="Edit" id="bookForm" enctype="multipart/form-data">
 <div class="row">
     <div class="col align-self-center homemaindiv">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <input type="hidden" asp-for="Id" />
             <h5>Personal Details</h5><hr/>
             <div class="form-group">
-                <li><label class="control-label">Passenger Name</label></li>
-                <input asp-for="PassengerName" class="form-control" required/>
+                <li><label class="control-label">Passenger Name</label><label class="control-label star">*</label></li>
+                <input type="text" asp-for="PassengerName" class="form-control" required/>
                 <span asp-validation-for="PassengerName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <li><<label class="control-label">Passport Number</label></li>
-                <input asp-for="PassportNumber" class="form-control" required/>
+                <li><label class="control-label">Passport Number</label><label class="control-label star">*</label></li>
+                <input type="text" asp-for="PassportNumber" class="form-control" required/>
                 <span asp-validation-for="PassportNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <li><label asp-for="Email" class="control-label"></label></li>
-                <input type="email" asp-for="Email" class="form-control" required/>
+                <li><label asp-for="Email" class="control-label"></label><label class="control-label star">*</label></li>
+                <input type="text" name="email" id="email" asp-for="Email" class="form-control" required/>
+                <div id="email_error" class="error hidden">Please enter a valid email</div>
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <li><label class="control-label">Mobile Number</label></li>
-                <input asp-for="MobileNumber" class="form-control" required/>
+                <li><label class="control-label">Mobile Number</label><label class="control-label star">*</label></li>
+                <input type="text" name="mobileNumber" id="mobileNumber" asp-for="MobileNumber" class="form-control" required/>
+                 <div id="phone_error" class="error hidden">Please enter a valid phone number</div>
                 <span asp-validation-for="MobileNumber" class="text-danger"></span>
             </div>
              <div class="form-group">
@@ -64,7 +73,7 @@
                 <span asp-validation-for="Class" class="text-danger"></span>
             </div><br/>
             <div class="form-group">
-                <li><label class="control-label">Required Seat</label></li>
+                <li><label class="control-label">Required Seat</label><label class="control-label star">*</label></li>
                 <input type="number" asp-for="RequiredSeat" class="form-control" />
                 <span asp-validation-for="RequiredSeat" class="text-danger"></span>
             </div>
@@ -109,12 +118,12 @@
             </div>
             <h5>Payment Details</h5><hr/>
             <div class="form-group">
-                <li><label class="control-label">Paid Price</label></li>
-                <input type="number" asp-for="PaidPrice" class="form-control" />
+                <li><label class="control-label">Paid Price</label><label class="control-label star">*</label></li>
+                <input type="text" asp-for="PaidPrice" class="form-control" />
                 <span asp-validation-for="PaidPrice" class="text-danger"></span>
             </div>
             <div>
-                <li><label class="control-label"></label>Paid Recipt</li>
+                <li><label class="control-label">Paid Recipt</label><label class="control-label star">*</label></li>
                 <input type="file" name="PaidRecipt" id="PaidRecipt" accept="image/*" asp-for="PaidRecipt"/>
                 <span asp-validation-for="PaidRecipt" class="text-danger"></span>
             </div><hr/>
