@@ -1,0 +1,50 @@
+﻿@model ITPM_Project2022_SLIIT.Models.FlightList
+
+@{
+    ViewData["Title"] = "UpdateTicketPrice";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Update Ticket Price</h1>
+
+<h4>FlightList</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="id" />
+            <div class="form-group">
+                <label asp-for="FirstClassPrice" class="control-label"></label>
+                <input asp-for="FirstClassPrice" class="form-control" />
+                <span asp-validation-for="FirstClassPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BsClassPrice" class="control-label"></label>
+                <input asp-for="BsClassPrice" class="form-control" />
+                <span asp-validation-for="BsClassPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PriEconomyClassPrice" class="control-label"></label>
+                <input asp-for="PriEconomyClassPrice" class="form-control" />
+                <span asp-validation-for="PriEconomyClassPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EconomyClassPrice" class="control-label"></label>
+                <input asp-for="EconomyClassPrice" class="form-control" />
+                <span asp-validation-for="EconomyClassPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

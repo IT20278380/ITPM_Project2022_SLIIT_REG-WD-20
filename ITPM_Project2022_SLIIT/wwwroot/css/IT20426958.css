@@ -1,0 +1,130 @@
+﻿.flightSchedule{
+    margin-left: 50px;
+}
+
+.pageName {
+    font-family: 'Dancing Script', cursive;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.search {
+    margin-left: 200px;
+}
+
+.tab {
+    display: inline-block;
+    margin-left: 40px;
+}
+
+.homemaindiv {
+    border: 2px solid gray;
+    border-radius: 5px;
+    background-color: ghostwhite;
+    margin: 50px 0px 0px 0px;
+}
+
+
+
+.HAtab {
+    display: inline-block;
+    margin-left: 40px;
+}
+
+
+/*----------------------------- Flight Schedule ----------------------*/
+
+.Htable {
+    margin: 10px;
+}
+
+.HAddButton {
+    margin-left: 50px;
+}
+
+/* -------------------------- update form -------------------------------*/
+
+.Upform {
+    background-color: ghostwhite;
+    width: 550px;
+    border: 2px solid gray;
+}
+
+.HUpdateformMargin {
+    margin-left: 210px;
+}
+
+.HUpFormName {
+    font-family: 'Dancing Script', cursive;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.HUpBackButton {
+    margin-left: 50px;
+    margin-top: -5px;
+}
+
+.HUpConformBut {
+    margin-left: 650px;
+    margin-top: 40px;
+    width: 300px;
+}
+
+/*------------------------- Add Details ----------------------------------*/
+
+.HAddform {
+    background-color: ghostwhite;
+    width: 50px;
+    border: 2px solid gray;
+}
+
+.HAddBackButton {
+    margin-left: 50px;
+    margin-top: -5px;
+}
+
+.HAddFormName {
+    font-family: 'Dancing Script', cursive;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.HAddformMargin {
+    margin-left: 210px;
+}
+
+.HAddConformButton {
+    margin-left: 650px;
+    margin-top: 40px;
+    width: 300px;
+}
+
+/*--------------------------- detete Form -------------------------------------- */
+
+.HDeleteMsg {
+    text-align: center;
+    font-family: 'Dancing Script', cursive;
+}
+
+.HDeletedetails {
+    border: 2px solid gray;
+    width: 550px;
+    margin-left: 500px;
+    background-color: ghostwhite;
+    font-size:20px;
+}
+
+.HDeleteBackButton {
+    margin-left: 50px;
+    margin-top: -5px;
+}
+
+.maHDeletedetails {
+    border: 2px solid gray;
+    margin-left: 500px;
+    background-color: ghostwhite;
+}
+
+
+
