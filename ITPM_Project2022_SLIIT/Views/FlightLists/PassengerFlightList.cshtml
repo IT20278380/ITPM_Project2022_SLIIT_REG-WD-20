@@ -1,0 +1,91 @@
+﻿@model IEnumerable<ITPM_Project2022_SLIIT.Models.FlightList>
+
+@{
+    ViewData["Title"] = "PassengerFlightList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Air Line Flight List</h2><br/><br/>
+
+<form method="get" asp-action="PassengerFlightList">
+    <div class="input-group container">
+      <button class="btn btn-outline-info" type="submit" id="button-addon1"> <b>Search Flight Destination</b> </button>
+      <input type="search" value="@ViewData["GetFlightDetails"]" name="flightSearch" class="form-control" placeholder="Enter Destination Country">
+    </div>
+</form>
+<br>
+
+<div class="table-responsive">
+<table class="table table-responsive table-borderless">
+    <thead>
+        <tr class="bg-light tanheight">
+            <th scope="col" width="10%">
+                Flight Name
+            </th>
+            <th scope="col" width="10%">
+                Date
+            </th>
+            <th scope="col" width="5%">
+                Time
+            </th>
+            <th scope="col" width="10%">
+                Destination
+            </th>
+            <th scope="col" width="10%">
+                First Class (Rs:)
+            </th>
+            <th scope="col" width="10%">
+                Bussiness Class (Rs:)
+            </th>
+            <th scope="col" width="10%">
+                Pri Economy (Rs:)
+            </th>
+            <th scope="col" width="10%">
+                Economy Class (Rs:)
+            </th>
+            <th scope="col" width="10%">
+                Book Now
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+<tr class="tanheight0">
+            <form  asp-action="CreateBL">
+            <td>
+                @Html.DisplayFor(modelItem => item.FlightName)
+                <input type="hidden" value="@item.FlightName" name="FlightName" class="form-control" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+                <input type="hidden" value="@item.Date" name="Date" class="form-control" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Time)
+                <input type="hidden" value="@item.Time" name="Time" class="form-control" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Destination)
+                <input type="hidden" value="@item.Destination" name="Destination" class="form-control" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstClassPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BsClassPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PriEconomyClassPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EconomyClassPrice)
+            </td>
+            <td>
+                <input type="submit" value="Book Now" class="btn btn-outline-primary" />
+            </td>         
+            </form>
+        </tr>
+}
+    </tbody>
+</table>
+</div>

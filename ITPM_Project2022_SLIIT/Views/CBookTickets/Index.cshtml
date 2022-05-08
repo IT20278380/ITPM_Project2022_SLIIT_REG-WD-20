@@ -1,0 +1,72 @@
+﻿@model IEnumerable<ITPM_Project2022_SLIIT.Models.BookTickets>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<center>
+<h1>Passenger Details</h1>
+</center>
+<a asp-action="notification"><img src="https://img.icons8.com/ios-filled/50/000000/appointment-reminders--v1.png"/></a>
+<br><br />
+<div style="margin-left">
+<form method="get" asp-action="Index">
+<input type="search" value="@ViewData["GetFlightDetails"]" name="flightSearch"/>
+<input type="submit" value="Search">
+</form>
+</div>
+<br />
+<table class="table Cgh">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PassengerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PassportNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MobileNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FlightName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Class)
+            </th>
+
+            <th></th>
+        </tr>  
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PassengerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PassportNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MobileNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlightName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Class)
+            </td>
+            <td>
+                <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id">Confirm Ticket</a>
+                <a class="btn btn-primary" asp-action="Update" asp-route-id="@item.Id">Update</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
