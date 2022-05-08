@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="wwwroot\css\it20276232.css" />
     <Content Include="wwwroot\css\IT20278380.css" />
     <Content Include="wwwroot\css\Log.css" />
   </ItemGroup>
