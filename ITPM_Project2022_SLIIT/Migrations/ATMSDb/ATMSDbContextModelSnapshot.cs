@@ -75,9 +75,84 @@ namespace ITPM_Project2022_SLIIT.Migrations.ATMSDb
                     b.ToTable("BookTickets");
                 });
 
+<<<<<<< HEAD
+=======
+            modelBuilder.Entity("ITPM_Project2022_SLIIT.Models.BsClassFood", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("FoodName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("FoodStatus")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<float>("Price")
+                        .HasColumnType("real");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("BsClassFood");
+                });
+
+            modelBuilder.Entity("ITPM_Project2022_SLIIT.Models.EconomyClassFood", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("FoodName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("FoodStatus")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<float>("Price")
+                        .HasColumnType("real");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("EconomyClassFood");
+                });
+
+            modelBuilder.Entity("ITPM_Project2022_SLIIT.Models.FirstClassFood", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("FoodName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("FoodStatus")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<float>("Price")
+                        .HasColumnType("real");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("FirstClassFood");
+                });
+
+>>>>>>> 179b72074e5f8a69bb524bcb71b10ae3b9b44678
             modelBuilder.Entity("ITPM_Project2022_SLIIT.Models.FlightList", b =>
                 {
-                    b.Property<int>("id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -106,12 +181,16 @@ namespace ITPM_Project2022_SLIIT.Migrations.ATMSDb
                     b.Property<string>("Time")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("id");
+                    b.HasKey("Id");
 
                     b.ToTable("FlightList");
                 });
 
+<<<<<<< HEAD
             modelBuilder.Entity("ITPM_Project2022_SLIIT.Models.Notification", b =>
+=======
+            modelBuilder.Entity("ITPM_Project2022_SLIIT.Models.OrderList", b =>
+>>>>>>> 179b72074e5f8a69bb524bcb71b10ae3b9b44678
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -121,10 +200,26 @@ namespace ITPM_Project2022_SLIIT.Migrations.ATMSDb
                     b.Property<string>("Date")
                         .HasColumnType("nvarchar(max)");
 
+<<<<<<< HEAD
                     b.Property<string>("Destination")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FlightName")
+=======
+                    b.Property<string>("FlightName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FoodName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<float>("Price")
+                        .HasColumnType("real");
+
+                    b.Property<string>("SeatNumber")
+>>>>>>> 179b72074e5f8a69bb524bcb71b10ae3b9b44678
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Time")
@@ -132,7 +227,35 @@ namespace ITPM_Project2022_SLIIT.Migrations.ATMSDb
 
                     b.HasKey("Id");
 
+<<<<<<< HEAD
                     b.ToTable("Notification");
+=======
+                    b.ToTable("OrderList");
+                });
+
+            modelBuilder.Entity("ITPM_Project2022_SLIIT.Models.PriEconomyClassFood", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("FoodName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("FoodStatus")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<float>("Price")
+                        .HasColumnType("real");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PriEconomyClassFood");
+>>>>>>> 179b72074e5f8a69bb524bcb71b10ae3b9b44678
                 });
 #pragma warning restore 612, 618
         }
