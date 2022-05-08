@@ -39,7 +39,7 @@ namespace ITPM_Project2022_SLIIT.Models
             }
 
             var flightList = await _context.FlightList
-                .FirstOrDefaultAsync(m => m.id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (flightList == null)
             {
                 return NotFound();
@@ -93,7 +93,7 @@ namespace ITPM_Project2022_SLIIT.Models
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("id,FlightName,Date,Time,Destination,FirstClassPrice,BsClassPrice,PriEconomyClassPrice,EconomyClassPrice")] FlightList flightList)
         {
-            if (id != flightList.id)
+            if (id != flightList.Id)
             {
                 return NotFound();
             }
@@ -107,7 +107,7 @@ namespace ITPM_Project2022_SLIIT.Models
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!FlightListExists(flightList.id))
+                    if (!FlightListExists(flightList.Id))
                     {
                         return NotFound();
                     }
@@ -137,7 +137,7 @@ namespace ITPM_Project2022_SLIIT.Models
         }
         public async Task<IActionResult> UpdateFlightDetails(int id, [Bind("id,FlightName,Date,Time,Destination")] FlightList flightDetails)
         {
-            if (id != flightDetails.id)
+            if (id != flightDetails.Id)
             {
                 return NotFound();
             }
@@ -151,7 +151,7 @@ namespace ITPM_Project2022_SLIIT.Models
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!FlightListExists(flightDetails.id))
+                    if (!FlightListExists(flightDetails.Id))
                     {
                         return NotFound();
                     }
@@ -168,7 +168,7 @@ namespace ITPM_Project2022_SLIIT.Models
 
         public async Task<IActionResult> UpdateTicketPrice(int id, [Bind("FirstClassPrice,BsClassPrice,PriEconomyClassPrice,EconomyClassPrice")] FlightList flightList)
         {
-            if (id != flightList.id)
+            if (id != flightList.Id)
             {
                 return NotFound();
             }
@@ -182,7 +182,7 @@ namespace ITPM_Project2022_SLIIT.Models
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!FlightListExists(flightList.id))
+                    if (!FlightListExists(flightList.Id))
                     {
                         return NotFound();
                     }
@@ -206,7 +206,7 @@ namespace ITPM_Project2022_SLIIT.Models
             }
 
             var flightList = await _context.FlightList
-                .FirstOrDefaultAsync(m => m.id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (flightList == null)
             {
                 return NotFound();
@@ -228,7 +228,7 @@ namespace ITPM_Project2022_SLIIT.Models
 
         private bool FlightListExists(int id)
         {
-            return _context.FlightList.Any(e => e.id == id);
+            return _context.FlightList.Any(e => e.Id == id);
         }
 
         public IActionResult ViewA()
