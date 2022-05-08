@@ -1,0 +1,80 @@
+﻿@model ITPM_Project2022_SLIIT.Models.FlightList
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="pageName">Add Details</h2>
+
+<div>
+    <a asp-action="Index" class = "HAddBackButton"><img src="https://img.icons8.com/ios-filled/50/000000/circled-left-2.png"/></a>
+</div>
+
+   
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+<div class="container HAddformMargin row">
+<div class="col align-self-center HAddform">
+
+            <div class="form-group">
+                <h5 class = "HAddFormName">Flight Details</h5> <hr>
+                <li><label class="control-label">Flight Name :</label></li>
+                <input asp-for="FlightName" class="form-control" />
+                <span asp-validation-for="FlightName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <li><label class="control-label">Date :</label></li>
+                <input asp-for="Date" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <li><label class="control-label">Time :</label></li>
+                <input asp-for="Time" class="form-control" />
+                <span asp-validation-for="Time" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <li><label class="control-label">Destination :</label></li>
+                <input asp-for="Destination" class="form-control" />
+                <span asp-validation-for="Destination" class="text-danger"></span>
+            </div>
+
+</div>
+<span class="HAtab"></span>
+ <div class="col align-self-center HAddform">
+
+            <div class="form-group">
+                <h5 class = "HAddFormName">Ticket Details</h5> <hr>
+                <li><label class="control-label">First class Ticket Price :</label></li>
+                <input asp-for="FirstClassPrice" class="form-control" />
+                <span asp-validation-for="FirstClassPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <li><label class="control-label">Business Class Ticket Price :</label></li>
+                <input asp-for="BsClassPrice" class="form-control" />
+                <span asp-validation-for="BsClassPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <li><label class="control-label">Premium Economy Class Ticket Price :</label></li>
+                <input asp-for="PriEconomyClassPrice" class="form-control" />
+                <span asp-validation-for="PriEconomyClassPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <li><label class="control-label">Economy Class Ticket Price :</label></li>
+                <input asp-for="EconomyClassPrice" class="form-control" />
+                <span asp-validation-for="EconomyClassPrice" class="text-danger"></span>
+            </div>
+
+</div>
+</div>
+                <input type="submit" value="Add Details" class="btn btn-primary HAddConformButton" />
+ 
+        </form>
+    
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

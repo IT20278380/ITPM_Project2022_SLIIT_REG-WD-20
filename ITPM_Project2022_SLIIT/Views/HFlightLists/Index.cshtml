@@ -4,12 +4,26 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<h2 class="pageName">flight Schedule</h2><br>
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
+<div class="row" style="width:1500px;">
+ <div class="col-sm-5 col-md-6">
+<p class = "HAddButton">
+    <a asp-action="Create"><img src="https://img.icons8.com/ios-filled/50/000000/add--v1.png"/> </a> 
 </p>
+</div>
+
+<div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0" >
+<form method="get" asp-action="PassengerFlightList">
+<div class="input-group">
+<button class="btn btn-outline-info" type="submit" id="button-addon1"> <b>Search Flight Destination</b> </button>
+<input type="search" value="@ViewData["GetFlightDetails"]" name="flightSearch" class="form-control " placeholder="Enter Destination Country">
+</div>
+</form>
+</div>
+</div>
+
+<div class = "Htable">
 <table class="table">
     <thead>
         <tr>
@@ -68,11 +82,13 @@
                 @Html.DisplayFor(modelItem => item.EconomyClassPrice)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+                <a type="button" class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id">Update <img src="https://img.icons8.com/material-outlined/24/000000/approve-and-update.png"/></a> 
+                <a type="button" class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Delete <img src="https://img.icons8.com/material/24/000000/delete-forever--v1.png"/></a>
             </td>
         </tr>
 }
     </tbody>
 </table>
+
+</div>
+

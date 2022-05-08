@@ -1,8 +1,45 @@
-﻿@{
+﻿@model ITPM_Project2022_SLIIT.Models.BookTickets
+
+@{
     ViewData["Title"] = "Home Page";
 }
+@if (TempData["message"] != null)
+{
+    <script>alert('@TempData["message"]');</script>
+}
+<div class="container">
+  <div class="row">
+    <div class="col align-self-center homemaindiv">
+        <h2>Book Ticket Here</h2>
+        <img id="image1" src="~/Images/air.png"/>
+        <center>
+        <a class="btn btn-outline-info" id="booknow" asp-action="BookNow">Book Now</a>
+        </center>
+    </div>
+    <span class="tab"></span>
+    <div class="col align-self-center homemaindiv">
+        <h2>Pre Order Meals</h2>
+        
+        <h5><ion-icon name="airplane" style="width:50px; height:50px"></ion-icon>
+            If You Want to Order Meals to Air Trip. First You Want Book Tickets.</h5>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+            <div>
+                    <form asp-action="Find">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div>       
+                                <div class="input-group mb-3">
+                                  <span class="input-group-text" id="inputGroup-sizing-default"><b>Passport Number</b></span>
+                                  <input type="text" class="form-control" asp-for="PassportNumber" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                </div>
+                            <span asp-validation-for="PassportNumber" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <center>
+                            <input type="submit" value="Order Now" class="btn btn-outline-info" />
+                            </center>
+                        </div>
+                    </form>
+            </div>
+    </div>
+  </div>
 </div>

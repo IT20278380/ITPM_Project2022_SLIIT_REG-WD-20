@@ -6,15 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - ITPM_Project2022_SLIIT</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/IT20278380.css" />
+    <link rel="stylesheet" href="~/css/Log.css" />
+    <link rel="stylesheet" href="~/css/IT20426958.css" />
+
     <link rel="stylesheet" href="~/css/HomeStyle.css" />
     <link rel="stylesheet" href="~/css/IT20243876.css" />
 </head>
 <body>
-    
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"> -- AIR WORLD --</a>
+    <div style="background: url(https://www.royalaero.com/images/headers/home-header.jpg)" class="bg-cover text-white">
+    <div class="container py-5 text-center">
+        <h1 class="display-4 font-weight-bold">AirWorld</h1>
+        <p class="font-italic mb-0">Fly Today With Us</p><br><br>
+
+        <button asp-controller="Home" asp-action="ContactUs" class="btn btn-outline-info"><b>Contact Us</b></button>
+    </div>
+</div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light navfooter">
+            <div class="container TfontT">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><b> -- AIR WORLD --</b></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -22,13 +34,13 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
+                            <a class="btn btn-outline-primary" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li><span class="tab"></span>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="ContactUs">Contact Us</a>
-                        </li>
+                            <a class="btn btn-outline-primary" asp-area="" asp-controller="Home" asp-action="ContactUs">Contact Us</a>
+                        </li><span class="tab"></span>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AboutUs">About Us</a>
+                            <a class="btn btn-outline-primary" asp-area="" asp-controller="Home" asp-action="AboutUs">About Us</a>
                         </li>
                     </ul>
                 </div>
@@ -37,11 +49,30 @@
                 </div>
             </div>
         </nav>
-    <div class="container">
+    <div>
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
+
+    <!-- footer-->
+        <div class="footer-basic">
+            <div class="social"><a href="#"><i><ion-icon name="logo-instagram"></ion-icon></i></a> <a href="#"><i><ion-icon name="logo-snapchat"></ion-icon></i></a> <a href="#"><i><ion-icon name="logo-twitter"></ion-icon></i></a> <a href="#"><i><ion-icon name="logo-facebook"></ion-icon></i></a></div>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="#">Home</a></li>
+                <li class="list-inline-item"><a href="#">Services</a></li>
+                <li class="list-inline-item"><a href="#">About</a></li>
+                <li class="list-inline-item"><a href="#">Terms</a></li>
+                <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+            </ul>
+        </div>
+    <footer class="footer">
+         <p class="copyright">Company Name © 2018</p>
+    </footer>
+    <script src="~/js/IT20276232.js"></script>
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

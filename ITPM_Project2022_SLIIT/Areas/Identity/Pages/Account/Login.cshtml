@@ -6,38 +6,61 @@
     Layout = "~/Areas/Identity/Pages/_LogUiLayout.cshtml";
 }
 
-<h1>@ViewData["Title"]</h1>
-<div class="row">
-    <div class="col-md-4">
-        <section>
-            <form id="account" method="post">
-                <div asp-validation-summary="All" class="text-danger"></div>
-                <div class="form-group">
-                    <label asp-for="Input.UserName"></label>
-                    <input asp-for="Input.UserName" class="form-control" />
-                    <span asp-validation-for="Input.UserName" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Input.Password"></label>
-                    <input asp-for="Input.Password" class="form-control" />
-                    <span asp-validation-for="Input.Password" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <div class="checkbox">
-                        <label asp-for="Input.RememberMe">
-                            <input asp-for="Input.RememberMe" />
-                            @Html.DisplayNameFor(m => m.Input.RememberMe)
-                        </label>
+<h2>@ViewData["Title"]</h2>
+
+  <div class="content">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <img src="~/Images/undraw_remotely_2j6y.svg" alt="Image" class="img-fluid">
+        </div>
+        <div class="col-md-6 contents">
+          <div class="row justify-content-center">
+            <div class="col-md-8">
+
+            <div class="wrapper0">
+                <div class="logo"> <ion-icon class="logo0"name="person"></ion-icon> </div>
+                <div class="text-center mt-4 name TfontT"> <b>Air World</b> </div>
+                <form class="p-3 mt-3" id="account" method="post">
+
+                    <div class="form-group">
+                        <li><label asp-for="Input.UserName"></label></li>
+                        <span asp-validation-for="Input.UserName" class="far fa-user"></span> 
+                        <input type="text"  asp-for="Input.UserName" class="form-control inputt" name="UserName" id="UserName" placeholder="User Name"> 
                     </div>
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Log in</button>
-                </div>
-            </form>
-        </section>
+                    <div class="form-group"> 
+                        <li><label asp-for="Input.Password"></label></li>
+                        <span asp-validation-for="Input.Password" class="fas fa-key"></span> 
+                        <input asp-for="Input.Password" type="password" class="form-control inputt" name="password" id="pwd" placeholder="Password"> 
+                    </div> 
+                    
+                    <center>
+                    <button type="submit" class="btn btn-outline-primary">Login</button>
+                    </center>
+                </form>
+                <div class="text-center fs-6"> <a id="register" asp-area="Identity" asp-page="/Account/Register">You Don't Have Account ? Register</a> </div>
+            </div>
+       
+             <!--
+              <div class="d-flex mb-5 align-items-center">
+                <label asp-for="Input.RememberMe" class="control control--checkbox mb-0">@Html.DisplayNameFor(m => m.Input.RememberMe)<span class="caption">Remember me</span>
+                  <input asp-for="Input.RememberMe" />
+                  <div class="control__indicator"></div>
+                </label>
+              </div>
+            --> 
+            </div>
+          </div>
+          
+        </div>
+        
+      </div>
     </div>
-    
-</div>
+  </div>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
