@@ -86,7 +86,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Migrations\ATMSDb\" />
     <Folder Include="wwwroot\Images\" />
   </ItemGroup>
 
