@@ -144,3 +144,19 @@ h5 {
 .hidden {
     display: none;
 }
+
+/*-------------------food-------------------*/
+.fname {
+    font-size: 30px;
+    text-align: center;
+}
+
+.cardfont{
+    font-size:15px;
+    color:darkslategrey;
+}
+
+.carddiv {
+    background-color: ghostwhite;
+    padding: 30px;
+}

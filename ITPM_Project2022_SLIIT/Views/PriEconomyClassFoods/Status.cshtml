@@ -5,50 +5,37 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Status</h1>
+<h2>Primear Economy Class Food</h2>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.FoodName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Image)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FoodStatus)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.FoodName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Image)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FoodStatus)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="container-fluid">
+  <div class="px-lg-5">
+      <div class="row">
+    @foreach (var item in Model) {
+
+     <div class="col-xl-3 col-lg-4 col-md-6 mb-4 carddiv">
+ <form  asp-action="CreateBL">
+     <input type="hidden" value="@item.FoodName" name="FoodName" class="form-control" />
+     <input type="hidden" value="@item.Image" name="Image" class="form-control" />
+      <input type="hidden" value="@item.Price" name="Price" class="form-control" />
+        <div class="bg-white rounded shadow-sm">
+                <img src="~/Images/@item.Image" style="width:200px; height:200px; margin-left:50px; padding-top:10px;" class="img-fluid card-img-top">
+          <div class="p-4">
+            <center>
+            <h3 class="fname">@Html.DisplayFor(modelItem => item.FoodName)</h3> 
+            </center>
+
+            <p class="cardfont">Per Order Your Food</p>
+            <p class="cardfont"> RS: @Html.DisplayFor(modelItem => item.Price) /=</p>
+
+            <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
+                <input type="submit" value="Order Now" class="btn btn-outline-primary" style="width:215px;"/>
+            </div>
+          </div>
+        </div>
+</form>
+      </div>
+
+    }
+    </div>
+   </div>
+</div>

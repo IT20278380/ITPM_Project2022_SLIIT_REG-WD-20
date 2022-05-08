@@ -36,6 +36,7 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Image)
+                 <img src="~/Images/@item.Image" class="rounded-circle" width="50" height="50" asp-append-version="true" />
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Price)
