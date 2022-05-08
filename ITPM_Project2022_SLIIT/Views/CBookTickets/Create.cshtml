@@ -1,0 +1,101 @@
+﻿@model ITPM_Project2022_SLIIT.Models.BookTickets
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>BookTickets</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="PassengerName" class="control-label"></label>
+                <input asp-for="PassengerName" class="form-control" />
+                <span asp-validation-for="PassengerName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PassportNumber" class="control-label"></label>
+                <input asp-for="PassportNumber" class="form-control" />
+                <span asp-validation-for="PassportNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MobileNumber" class="control-label"></label>
+                <input asp-for="MobileNumber" class="form-control" />
+                <span asp-validation-for="MobileNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FlightName" class="control-label"></label>
+                <input asp-for="FlightName" class="form-control" />
+                <span asp-validation-for="FlightName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Destination" class="control-label"></label>
+                <input asp-for="Destination" class="form-control" />
+                <span asp-validation-for="Destination" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Date" class="control-label"></label>
+                <input asp-for="Date" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Time" class="control-label"></label>
+                <input asp-for="Time" class="form-control" />
+                <span asp-validation-for="Time" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Class" class="control-label"></label>
+                <input asp-for="Class" class="form-control" />
+                <span asp-validation-for="Class" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RequiredSeat" class="control-label"></label>
+                <input asp-for="RequiredSeat" class="form-control" />
+                <span asp-validation-for="RequiredSeat" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PaidPrice" class="control-label"></label>
+                <input asp-for="PaidPrice" class="form-control" />
+                <span asp-validation-for="PaidPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SeatNumber" class="control-label"></label>
+                <input asp-for="SeatNumber" class="form-control" />
+                <span asp-validation-for="SeatNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GateNumber" class="control-label"></label>
+                <input asp-for="GateNumber" class="form-control" />
+                <span asp-validation-for="GateNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TicketNumber" class="control-label"></label>
+                <input asp-for="TicketNumber" class="form-control" />
+                <span asp-validation-for="TicketNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PaidRecipt" class="control-label"></label>
+                <input asp-for="PaidRecipt" class="form-control" />
+                <span asp-validation-for="PaidRecipt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
