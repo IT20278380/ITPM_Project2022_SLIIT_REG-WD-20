@@ -12,6 +12,8 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using ITPM_Project2022_SLIIT.Controllers;
+using ITPM_Project2022_SLIIT.Models;
 
 namespace ITPM_Project2022_SLIIT.Areas.Identity.Pages.Account
 {
@@ -22,13 +24,18 @@ namespace ITPM_Project2022_SLIIT.Areas.Identity.Pages.Account
         private readonly SignInManager<ATMSUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
 
+        private ATMSDbContext _context;
+        private string uName;
+
         public LoginModel(SignInManager<ATMSUser> signInManager, 
             ILogger<LoginModel> logger,
-            UserManager<ATMSUser> userManager)
+            UserManager<ATMSUser> userManager,
+            ATMSDbContext context)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
+            _context = context;
         }
 
         [BindProperty]
@@ -75,18 +82,45 @@ namespace ITPM_Project2022_SLIIT.Areas.Identity.Pages.Account
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
             returnUrl ??= Url.Content("~/");
+            string returnUrlFLM = Url.Content("~/HFlightLists/Index");
+            string returnUrlTM = Url.Content("~/CBookTickets/Index");
+            string returnUrlFm = Url.Content("~/NFirstClassFoods/MainView");
 
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
-        
+
             if (ModelState.IsValid)
             {
                 // This doesn't count login failures towards account lockout
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
                 var result = await _signInManager.PasswordSignInAsync(Input.UserName, Input.Password, Input.RememberMe, lockoutOnFailure: false);
+                uName = Input.UserName.ToString();
                 if (result.Succeeded)
                 {
-                    _logger.LogInformation("User logged in.");
-                    return LocalRedirect(returnUrl);
+                    //validation
+                    AspNetUsersController aspNetUsersController = new AspNetUsersController(_context);
+                    string data = aspNetUsersController.Details(uName);
+
+                    if(data != null)
+                    {
+                        if(data == "hasini@gmail.com")
+                        {
+                            _logger.LogInformation("User logged in.");
+                            return LocalRedirect(returnUrlFLM);
+                        }else if (data == "chathuranga@gmail.com")
+                        {
+                            _logger.LogInformation("User logged in.");
+                            return LocalRedirect(returnUrlTM);
+                        }else if (data == "nadeeka@gmail.com")
+                        {
+                            _logger.LogInformation("User logged in.");
+                            return LocalRedirect(returnUrlFm);
+                        }
+                        else
+                        {
+                            _logger.LogInformation("User logged in.");
+                            return LocalRedirect(returnUrl);
+                        }
+                    }
                 }
                 if (result.RequiresTwoFactor)
                 {

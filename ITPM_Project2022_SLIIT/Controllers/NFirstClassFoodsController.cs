@@ -22,6 +22,12 @@ namespace ITPM_Project2022_SLIIT.Controllers
             _env = env;
         }
 
+        //Main View
+        public IActionResult MainView()
+        {
+            return View();
+        }
+
         // GET: NFirstClassFoods
         public async Task<IActionResult> Index()
         {
