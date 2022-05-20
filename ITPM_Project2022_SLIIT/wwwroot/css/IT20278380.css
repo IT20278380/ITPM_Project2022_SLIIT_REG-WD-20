@@ -34,11 +34,12 @@ h5 {
     border-radius: 7px
 }
 
-.homemaindiv {
-    border: 2px solid gray;
+.homemaindiv0 {
+    border: 5px solid cadetblue;
     border-radius: 5px;
     background-color: ghostwhite;
     margin: 50px 0px 0px 0px;
+    border-radius: 10px;
 }
 
 #image1{
@@ -126,6 +127,13 @@ h5 {
 /*-------------------flight list table-------------------*/
 .tanheight{
     height:40px;
+    background-color:cadetblue;
+    color:white;
+}
+
+.tabBor {
+    border: 10px solid cadetblue;
+}
 }
 
 .tanheight0 {
@@ -154,6 +162,11 @@ h5 {
 .cardfont{
     font-size:15px;
     color:darkslategrey;
+}
+
+.cardfont0 {
+    font-size: 18px;
+    color: darkslategrey;
 }
 
 .carddiv {

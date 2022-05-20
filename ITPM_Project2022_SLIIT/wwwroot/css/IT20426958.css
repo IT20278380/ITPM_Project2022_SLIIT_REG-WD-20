@@ -24,7 +24,18 @@
     margin: 50px 0px 0px 0px;
 }
 
+.homemaindivMain {
+    border: 2px solid gray;
+    border-radius: 5px;
+    background-color: ghostwhite;
+    margin: 30px;
+    padding:10px;
+}
 
+.cen{
+    margin:auto;
+    width:50%;
+}
 
 .HAtab {
     display: inline-block;
@@ -47,7 +58,8 @@
 .Upform {
     background-color: ghostwhite;
     width: 550px;
-    border: 2px solid gray;
+    border: 5px solid cadetblue;
+    border-radius:10px;
 }
 
 .HUpdateformMargin {
@@ -76,7 +88,8 @@
 .HAddform {
     background-color: ghostwhite;
     width: 50px;
-    border: 2px solid gray;
+    border: 5px solid cadetblue;
+    border-radius:10px;
 }
 
 .HAddBackButton {
@@ -108,11 +121,12 @@
 }
 
 .HDeletedetails {
-    border: 2px solid gray;
+    border: 5px solid cadetblue;
     width: 550px;
     margin-left: 500px;
     background-color: ghostwhite;
-    font-size:20px;
+    font-size: 20px;
+    border-radius
 }
 
 .HDeleteBackButton {

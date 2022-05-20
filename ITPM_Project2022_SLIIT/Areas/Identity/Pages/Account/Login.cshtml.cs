@@ -82,7 +82,7 @@ namespace ITPM_Project2022_SLIIT.Areas.Identity.Pages.Account
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
             returnUrl ??= Url.Content("~/");
-            string returnUrlFLM = Url.Content("~/HFlightLists/Index");
+            string returnUrlFLM = Url.Content("~/HFlightLists/ViewA");
             string returnUrlTM = Url.Content("~/CBookTickets/Index");
             string returnUrlFm = Url.Content("~/NFirstClassFoods/MainView");
 

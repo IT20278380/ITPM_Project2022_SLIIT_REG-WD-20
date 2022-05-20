@@ -91,7 +91,7 @@ namespace ITPM_Project2022_SLIIT.Models
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id,FlightName,Date,Time,Destination,FirstClassPrice,BsClassPrice,PriEconomyClassPrice,EconomyClassPrice")] FlightList flightList)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,FlightName,Date,Time,Destination,FirstClassPrice,BsClassPrice,PriEconomyClassPrice,EconomyClassPrice")] FlightList flightList)
         {
             if (id != flightList.Id)
             {

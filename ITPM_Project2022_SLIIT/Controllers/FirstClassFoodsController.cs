@@ -32,6 +32,7 @@ namespace ITPM_Project2022_SLIIT.Controllers
 
         public async Task<IActionResult> CreateBL([Bind("Id,FoodName,Price,Image,FlightName,Date,Time,SeatNumber")] OrderList orderList)
         {
+            int save = 0;
             if (ModelState.IsValid)
             {
                 //var bookTickets = await _context.BookTickets.Find(EnterPassportNumber);
@@ -50,11 +51,20 @@ namespace ITPM_Project2022_SLIIT.Controllers
                 orderList.SeatNumber = bookTickets.Select(b => b.SeatNumber).First();
 
                 _context.Add(orderList);
-                await _context.SaveChangesAsync();
+                save = await _context.SaveChangesAsync();
 
                 //var bt = _context.BookTickets.Max(B => B.Id);
                 //return RedirectToAction("Edit", "BookTickets", new { id = bt });
-                return RedirectToAction("Index", "OrderLists");
+                if(save > 0)
+                {
+                    TempData["message"] = "Food Orderd !";
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    TempData["message"] = "Food Orderd Error !";
+                    return RedirectToAction("Index", "Index");
+                }
             }
             return View(orderList);
         }
