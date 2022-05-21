@@ -1,0 +1,58 @@
+﻿
+.NFtbl {
+    background: linear-gradient(to bottom, white, LightSeaGreen);
+    color: white;
+}
+
+
+
+
+.NABC {
+    background: lightblue;
+}
+
+.UPfirst {
+    margin-left: 350px;
+    background-color: Violet;
+    width: 450px;
+    border: 4px solid gray;
+}
+
+
+ /*.forms
+
+{
+    margin-left: 400px;
+    background-color: #D6EAF8;
+    width: 450px;
+    border: 4px solid gray;
+}*/
+
+.NbutA{
+    margin-left:1235px;
+}
+
+
+
+width: 10%;
+background-image: url("images.jpg");
+box-shadow: 0 0 10px 5px rgba(0,0,0,0.6);
+border-radius: 18px;
+background-repeat: no-repeat;
+background-size: cover;
+
+height: 30px;
+text-align: center;
+font-weight: bold;
+
+
+color: maroon;
+text-decoration:;
+text-align: center;
+
+
+/*.NFbody {
+    background: linear-gradient(to bottom, white, LightSeaGreen);
+    color: white;
+}
+*/

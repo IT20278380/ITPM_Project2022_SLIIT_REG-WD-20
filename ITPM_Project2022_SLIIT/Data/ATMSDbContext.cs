@@ -29,5 +29,7 @@ namespace ITPM_Project2022_SLIIT.Models
         public DbSet<ITPM_Project2022_SLIIT.Models.EconomyClassFood> EconomyClassFood { get; set; }
 
         public DbSet<ITPM_Project2022_SLIIT.Models.OrderList> OrderList { get; set; }
+
+        public DbSet<ITPM_Project2022_SLIIT.Models.AspNetUser> AspNetUsers { get; set; }
     }
 }

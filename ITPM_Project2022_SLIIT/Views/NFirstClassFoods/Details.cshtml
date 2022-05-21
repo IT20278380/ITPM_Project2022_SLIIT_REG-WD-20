@@ -1,0 +1,94 @@
+﻿@model ITPM_Project2022_SLIIT.Models.FirstClassFood
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*
+
+    <body>
+  <div class="background">
+    <div class="shape"></div>
+    <div class="shape"></div>
+  </div>
+*@
+
+  <form>
+
+      <center><h4>First Class Foods</h4></center><br /><br />
+
+       <dl class="row">
+    <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FoodName)
+        </dt><br /><br />
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FoodName)
+        </dd><br /><br />
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Image)
+        </dt><br /><br />
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Image)
+        </dd><br /><br />
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Price)
+        </dt><br /><br />
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Price)
+        </dd><br /><br />
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FoodStatus)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FoodStatus)
+        </dd><br />
+        </dl>
+        <div>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+</form>
+  
+@*
+  <head>
+
+  <style>
+
+    body {
+      background: linear-gradient(to bottom, white, LightSeaGreen);
+        color: white;
+    }
+
+
+    form {
+      height: 60%;
+      width: 50%;
+      text-align:60%;
+      background-color: linear-gradient(to bottom, white, Silver);
+      position: absolute;
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 50%;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+      padding: 50px 35px;
+    }
+
+    form h3 {
+      font-size: 42px;
+      font-weight: 500;
+      line-height: 62px;
+      text-align: center;
+    }
+
+  
+  </style>
+</head>
+  </form>
+</body>
+</html>
+
+*@

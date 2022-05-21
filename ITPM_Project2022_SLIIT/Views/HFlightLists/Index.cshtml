@@ -14,7 +14,7 @@
 </div>
 
 <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0" >
-<form method="get" asp-action="PassengerFlightList">
+<form asp-action="Index">
 <div class="input-group">
 <button class="btn btn-outline-info" type="submit" id="button-addon1"> <b>Search Flight Destination</b> </button>
 <input type="search" value="@ViewData["GetFlightDetails"]" name="flightSearch" class="form-control " placeholder="Enter Destination Country">
@@ -23,10 +23,10 @@
 </div>
 </div>
 
-<div class = "Htable">
-<table class="table">
+<div class = "table-responsive">
+<table class="table tabBor">
     <thead>
-        <tr>
+        <tr class="tanheight">
             <th>
                 @Html.DisplayNameFor(model => model.FlightName)
             </th>

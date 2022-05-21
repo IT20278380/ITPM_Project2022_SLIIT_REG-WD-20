@@ -12,7 +12,7 @@
 </div>
 
    
-        <form asp-action="Create">
+        <form onsubmit="Flists(event)" asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
 <div class="container HAddformMargin row">
@@ -21,22 +21,23 @@
             <div class="form-group">
                 <h5 class = "HAddFormName">Flight Details</h5> <hr>
                 <li><label class="control-label">Flight Name :</label></li>
-                <input asp-for="FlightName" class="form-control" />
+                <input type="text" asp-for="FlightName" class="form-control" required/>
                 <span asp-validation-for="FlightName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <li><label class="control-label">Date :</label></li>
-                <input asp-for="Date" class="form-control" />
+                <input type="date" asp-for="Date" class="form-control" required/>
                 <span asp-validation-for="Date" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <li><label class="control-label">Time :</label></li>
-                <input asp-for="Time" class="form-control" />
+                <input asp-for="Time" id="time" class="form-control" required/>
                 <span asp-validation-for="Time" class="text-danger"></span>
+                <div id="time_error" class="error hidden">Please enter a valid Time, 24 Format</div>
             </div>
             <div class="form-group">
                 <li><label class="control-label">Destination :</label></li>
-                <input asp-for="Destination" class="form-control" />
+                <input type="text" asp-for="Destination" class="form-control" required/>
                 <span asp-validation-for="Destination" class="text-danger"></span>
             </div>
 
@@ -47,28 +48,32 @@
             <div class="form-group">
                 <h5 class = "HAddFormName">Ticket Details</h5> <hr>
                 <li><label class="control-label">First class Ticket Price :</label></li>
-                <input asp-for="FirstClassPrice" class="form-control" />
+                <input type="text" id="price1" asp-for="FirstClassPrice" class="form-control" required/>
                 <span asp-validation-for="FirstClassPrice" class="text-danger"></span>
+                <div id="price1_error" class="error hidden">Please enter a valid Price</div>
             </div>
             <div class="form-group">
                 <li><label class="control-label">Business Class Ticket Price :</label></li>
-                <input asp-for="BsClassPrice" class="form-control" />
+                <input type="text" id="price2" asp-for="BsClassPrice" class="form-control" required/>
                 <span asp-validation-for="BsClassPrice" class="text-danger"></span>
+                <div id="price2_error" class="error hidden">Please enter a valid Price</div>
             </div>
             <div class="form-group">
                 <li><label class="control-label">Premium Economy Class Ticket Price :</label></li>
-                <input asp-for="PriEconomyClassPrice" class="form-control" />
+                <input type="text" id="price3" asp-for="PriEconomyClassPrice" class="form-control" />
                 <span asp-validation-for="PriEconomyClassPrice" class="text-danger"></span>
+                <div id="price3_error" class="error hidden">Please enter a valid Price</div>
             </div>
             <div class="form-group">
                 <li><label class="control-label">Economy Class Ticket Price :</label></li>
-                <input asp-for="EconomyClassPrice" class="form-control" />
+                <input type="text" id="price4" asp-for="EconomyClassPrice" class="form-control" />
                 <span asp-validation-for="EconomyClassPrice" class="text-danger"></span>
+                <div id="price4_error" class="error hidden">Please enter a valid Price</div>
             </div>
 
 </div>
 </div>
-                <input type="submit" value="Add Details" class="btn btn-primary HAddConformButton" />
+                <input type="submit" value="Add Details" class="btn btn-outline-primary HAddConformButton" />
  
         </form>
     

@@ -1,0 +1,88 @@
+﻿@model IEnumerable<ITPM_Project2022_SLIIT.Models.EconomyClassFood>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<center><h1>Economy Class Foods</h1></center>
+
+ <input type="submit" value="Order Details" class="btn btn-primary" />
+
+   <a asp-action="Create" class="btn btn-primary NbutA">Add</a> <br /><br /><br />
+
+<table class="table">
+      
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FoodName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FoodStatus)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FoodName)
+            </td>
+            <td>
+               
+                <img src="~/Images/@item.Image" class="rounded-circle" width="50" height="50" asp-append-version="true" />
+
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FoodStatus)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id"  class="btn btn-primary">Update</a> |
+                <a asp-action="Details" asp-route-id="@item.Id"  class="btn btn-info">View</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id"  class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+
+</table>
+
+@*
+<style>
+
+ table{
+    width:10%;
+    background-image: url("images.jpg");
+     box-shadow: 0 0 10px 5px rgba(0,0,0,0.6);
+    border-radius: 18px;
+    background-repeat: no-repeat;
+    background-size: cover;
+ }
+  td
+  {
+    height:30px;
+    text-align:center;
+    font-weight:bold;
+  }
+  th
+  {
+    color:maroon;
+    text-decoration:;
+    text-align:center;
+  
+ }
+
+</style>*@
+

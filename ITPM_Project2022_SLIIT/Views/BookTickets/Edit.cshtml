@@ -15,9 +15,9 @@
 }
 
 <div class="container">
-<form onsubmit="validateForm(event)" asp-action="Edit" id="bookForm" enctype="multipart/form-data">
+<form onSubmit="validateForm(event)" asp-action="Edit" id="bookForm" enctype="multipart/form-data">
 <div class="row">
-    <div class="col align-self-center homemaindiv">
+    <div class="col align-self-center homemaindiv0">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <input type="hidden" asp-for="Id" />
             <h5>Personal Details</h5><hr/>
@@ -90,7 +90,7 @@
 
     <span class="tab"></span>
 
-    <div class="col align-self-center homemaindiv">
+    <div class="col align-self-center homemaindiv0">
         <h5>Flight Details</h5><hr/>
             <div class="form-group">
                 <li><label class="control-label">Flight Name</label></li>
@@ -119,12 +119,12 @@
             <h5>Payment Details</h5><hr/>
             <div class="form-group">
                 <li><label class="control-label">Paid Price</label><label class="control-label star">*</label></li>
-                <input type="text" asp-for="PaidPrice" class="form-control" />
+                <input type="text" asp-for="PaidPrice" class="form-control" required/>
                 <span asp-validation-for="PaidPrice" class="text-danger"></span>
             </div>
             <div>
                 <li><label class="control-label">Paid Recipt</label><label class="control-label star">*</label></li>
-                <input type="file" name="PaidRecipt" id="PaidRecipt" accept="image/*" asp-for="PaidRecipt"/>
+                <input type="file" name="PaidRecipt" id="PaidRecipt" accept="image/*" asp-for="PaidRecipt" required/>
                 <span asp-validation-for="PaidRecipt" class="text-danger"></span>
             </div><hr/>
             <div class="d-grid gap-2 col-6 mx-auto">
