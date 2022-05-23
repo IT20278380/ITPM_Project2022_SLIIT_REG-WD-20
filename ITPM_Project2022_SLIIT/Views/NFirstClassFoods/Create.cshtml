@@ -12,30 +12,25 @@
 
 <div class="Naddform">
     <div class="Nform2" >
-        <form enctype="multipart/form-data" asp-action="Create">
+        <form onsubmit="Food(event)" enctype="multipart/form-data" asp-action="Create">
 
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="FoodName" class="control-label"></label>
-                <input asp-for="FoodName" class="form-control" />
+                <input asp-for="FoodName" class="form-control" required/>
                 <span asp-validation-for="FoodName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Image" class="control-label"></label>
-                <input type="file" asp-for="Image" />
+                <input type="file" asp-for="Image" required/>
                 <span asp-validation-for="Image" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Price" class="control-label"></label>
-                <input asp-for="Price" class="form-control" />
+                <input asp-for="Price" id="Price" class="form-control" />
                 <span asp-validation-for="Price" class="text-danger"></span>
+                <div id="price_error" class="error hidden">Please enter a valid Price</div>
             </div>
-          <!--  <div class="form-group">
-                <label asp-for="FoodStatus" class="control-label"></label>
-                <input asp-for="FoodStatus" class="form-control" />
-                <span asp-validation-for="FoodStatus" class="text-danger"></span>
-            </div>
-            <br>-->
 
              <div class="form-group">
                 <li><label class="control-label">Food Status</label></li>

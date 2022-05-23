@@ -24,6 +24,7 @@
     <None Include="wwwroot\css\site.css" />
     <None Include="wwwroot\favicon.ico" />
     <None Include="wwwroot\Images\undraw_remotely_2j6y.svg" />
+    <None Include="wwwroot\js\IT20243876.js" />
     <None Include="wwwroot\js\IT20276232.js" />
     <None Include="wwwroot\js\IT20278380.js" />
     <None Include="wwwroot\js\IT20426958.js" />
