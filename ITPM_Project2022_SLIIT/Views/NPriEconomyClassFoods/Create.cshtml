@@ -10,8 +10,8 @@
 
 
 
-<div class="row">
-    <div class="col-md-4 forms" >
+<div class="Naddform">
+    <div class="Nform2" >
         <form enctype="multipart/form-data" asp-action="Create" class="ABC">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -30,12 +30,21 @@
                 <span asp-validation-for="Price" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="FoodStatus" class="control-label"></label>
-                <input asp-for="FoodStatus" class="form-control" />
+                <li><label class="control-label">Food Status</label></li>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="FoodStatus" id="FoodStatus" value="1" asp-for="FoodStatus">
+                  <label class="form-check-label" >
+                    Available
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="FoodStatus" id="FoodStatus" value="0" asp-for="FoodStatus">
+                  <label class="form-check-label">
+                    Non Available
+                  </label>
                 <span asp-validation-for="FoodStatus" class="text-danger"></span>
+            </div><br/>
             </div>
-
-
 
             <div class="form-group">
                <center><input type="submit" value="Create" class="btn btn-primary" /></center> 
@@ -43,9 +52,5 @@
         </form>
 
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 

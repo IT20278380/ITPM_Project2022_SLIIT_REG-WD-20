@@ -72,6 +72,7 @@
                 </div>
                 <span asp-validation-for="Class" class="text-danger"></span>
             </div><br/>
+
             <div class="form-group">
                 <li><label class="control-label">Required Seat</label><label class="control-label star">*</label></li>
                 <input type="number" asp-for="RequiredSeat" class="form-control" />
@@ -124,7 +125,7 @@
             </div>
             <div>
                 <li><label class="control-label">Paid Recipt</label><label class="control-label star">*</label></li>
-                <input type="file" name="PaidRecipt" id="PaidRecipt" accept="image/*" asp-for="PaidRecipt" required/>
+                <input type="file" name="PaidRecipt" id="PaidRecipt" accept="image/*" asp-for="PaidRecipt" />
                 <span asp-validation-for="PaidRecipt" class="text-danger"></span>
             </div><hr/>
             <div class="d-grid gap-2 col-6 mx-auto">

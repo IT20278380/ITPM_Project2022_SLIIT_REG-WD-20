@@ -27,6 +27,11 @@ namespace ITPM_Project2022_SLIIT.Controllers
             return View(await _context.PriEconomyClassFood.ToListAsync());
         }
 
+        public async Task<IActionResult> order()
+        {
+            return RedirectToAction("Index", "OrderLists");
+        }
+
         // GET: NPriEconomyClassFoods/Details/5
         public async Task<IActionResult> Details(int? id)
         {

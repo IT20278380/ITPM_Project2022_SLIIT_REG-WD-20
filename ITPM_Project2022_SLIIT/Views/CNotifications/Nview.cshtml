@@ -1,18 +1,17 @@
 ﻿@model IEnumerable<ITPM_Project2022_SLIIT.Models.Notification>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Nview";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<h2>Flight Updated Details</h2>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
+<br>
+<div  class = "table-responsive tabwid">
+<table id="tabNot" class="tabBor tabcen">
     <thead>
-        <tr>
+        <tr class="tanheight">
             <th>
                 @Html.DisplayNameFor(model => model.FlightName)
             </th>
@@ -25,7 +24,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Time)
             </th>
-            <th></th>
+             <th>
+                Mark Updated
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -44,11 +45,10 @@
                 @Html.DisplayFor(modelItem => item.Time)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+              <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.Id" style="height:35px;">Mark As Read</a>
             </td>
         </tr>
 }
     </tbody>
 </table>
+</div>

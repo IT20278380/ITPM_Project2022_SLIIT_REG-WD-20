@@ -24,6 +24,12 @@ namespace ITPM_Project2022_SLIIT.Controllers
             return View(await _context.Notification.ToListAsync());
         }
 
+        public async Task<IActionResult> Nview()
+        {
+            int count = await _context.Notification.CountAsync();
+            return View(await _context.Notification.ToListAsync());
+        }
+
         // GET: CNotifications/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -115,33 +121,12 @@ namespace ITPM_Project2022_SLIIT.Controllers
             return View(notification);
         }
 
-        // GET: CNotifications/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var notification = await _context.Notification
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (notification == null)
-            {
-                return NotFound();
-            }
-
-            return View(notification);
-        }
-
-        // POST: CNotifications/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> Delete(int id)
         {
             var notification = await _context.Notification.FindAsync(id);
             _context.Notification.Remove(notification);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Nview", "CNotifications");
         }
 
         private bool NotificationExists(int id)

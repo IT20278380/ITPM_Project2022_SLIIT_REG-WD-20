@@ -31,6 +31,11 @@ namespace ITPM_Project2022_SLIIT.Controllers
 
             return View(avaibleFood);
         }
+
+        public async Task<IActionResult> order()
+        {
+            return RedirectToAction("Index", "OrderLists");
+        }
         public async Task<IActionResult> CreateBL([Bind("Id,FoodName,Price,Image,FlightName,Date,Time,SeatNumber")] OrderList orderList)
         {
             if (ModelState.IsValid)

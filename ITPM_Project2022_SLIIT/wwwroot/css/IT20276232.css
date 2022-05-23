@@ -1,35 +1,47 @@
-﻿.Cgh{
-    background-color:ghostwhite;
+﻿.CAddButton {
+    margin-left: 50px;
 }
 
-.Cqm {
+.Ccen {
+    margin: auto;
     width: 50%;
 }
 
-.Cuk{
-    margin-left:30%;
-    margin-right:20%;
-    width:40%;
-    
-}
-
-.Chm{
-    margin-top  :10%;
-    margin-bottom :10%;
-}
-
-.Cmn {
-    margin-left: 5%;
-    margin-right: -5%;
-}
-
-.Cfc{
+.ChomemaindivMain {
+    border: 5px solid cadetblue;
+    border-radius: 5px;
+    background-color: ghostwhite;
+    margin: auto;
+    margin-top:30px;
+    margin-bottom:50px;
     width:50%;
+    padding: 20px;
 }
 
-.Cvm {
-    margin-left: 30%;
+.Ctidiv{
+    border: 5px solid cadetblue;
+    border-radius: 5px;
+    background-color: ghostwhite;
 }
 
+.CAtab {
+    display: inline-block;
+    margin-left: 40px;
+}
 
+.Cupdiv {
+    border: 5px solid cadetblue;
+    border-radius: 5px;
+    background-color: ghostwhite;
+    padding: 20px;
+    width:20%;
+}
 
+.tabwid {
+    margin:auto;
+}
+
+.tabcen {
+    width: 45%;
+    margin: auto;
+}

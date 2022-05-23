@@ -27,6 +27,11 @@ namespace ITPM_Project2022_SLIIT.Controllers
             return View(await _context.BsClassFood.ToListAsync());
         }
 
+        public async Task<IActionResult> order()
+        {
+            return RedirectToAction("Index", "OrderLists");
+        }
+
         // GET: NBsClassFoods/Details/5
         public async Task<IActionResult> Details(int? id)
         {

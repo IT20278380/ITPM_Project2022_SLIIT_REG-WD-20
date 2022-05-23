@@ -5,19 +5,19 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
-<center><h1>Premium Economy Foods</h1></center>
-
+<h2>Premium Economic Foods</h2>
 
 
- <input type="submit" value="Order Details" class="btn btn-primary" />
 
-   <a asp-action="Create" class="btn btn-primary NbutA">Add</a> <br /><br /><br />
+<div class="container Nbutduv">
+   <a asp-action="Create" class="btn btn-outline-primary Nadd">Add Food</a>
+   <a asp-action="order" class="btn btn-outline-primary Norder">View Ordred Details</a>
+</div>
 
-<table class="table">
-      
-    <thead>
-        <tr>
+<div  class = "container table-responsive">
+<table class="table tabBor" >
+<thead>
+        <tr class="tanheight">
             <th>
                 @Html.DisplayNameFor(model => model.FoodName)
             </th>
@@ -51,41 +51,13 @@
             <td>
                 @Html.DisplayFor(modelItem => item.FoodStatus)
             </td>
-            <td>
+            <td style="width:250px;">
                 <a asp-action="Edit" asp-route-id="@item.Id"  class="btn btn-primary">Update</a> |
-                <a asp-action="Details" asp-route-id="@item.Id"  class="btn btn-info">View</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id"  class="btn btn-danger">Delete</a>
             </td>
         </tr>
 }
     </tbody>
-
+   
 </table>
-
-@*<style>
-
- table{
-    width:10%;
-    background-image: url("images.jpg");
-     box-shadow: 0 0 10px 5px rgba(0,0,0,0.6);
-    border-radius: 18px;
-    background-repeat: no-repeat;
-    background-size: cover;
- }
-  td
-  {
-    height:30px;
-    text-align:center;
-    font-weight:bold;
-  }
-  th
-  {
-    color:maroon;
-    text-decoration:;
-    text-align:center;
-  
- }
-
-</style>
-
-*@
+</div>

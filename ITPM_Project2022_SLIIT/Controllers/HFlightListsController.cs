@@ -104,6 +104,15 @@ namespace ITPM_Project2022_SLIIT.Models
                 {
                     _context.Update(flightList);
                     await _context.SaveChangesAsync();
+
+                    Notification notification = new Notification();
+                    notification.FlightName = flightList.FlightName;
+                    notification.Destination = flightList.Destination;
+                    notification.Date = flightList.Date;
+                    notification.Time = flightList.Time;
+
+                    _context.Add(notification);
+                    await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {

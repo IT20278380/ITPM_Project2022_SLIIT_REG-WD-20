@@ -4,41 +4,39 @@
     ViewData["Title"] = "Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-            
-            <div>
-            <br /><br />
-            <div class="card text-center Cuk border border-secondary">
-            <div class="card-header">
-              <h5> Calculate Price</h5>
-            </div>
-            </div>
-            
-                <div class="card-body  border border-secondary">
-                    <br />
-                    <p>Required Seat :- @Model.RequiredSeat</p>
-                   
-                    <form onSubmit="cal(event)">
-                    <div class="form-group">
-                    <label class="control-label">Ticket Price</label>
-                    <input id="TicketsPrice" name="TicketsPrice" class="Cqm Cuk" />
-                    </div>
-                    <center><input href="#" class="btn btn-success Cfc"type="submit" value="Calculate" /></center>
-                    <br />
-                    <div class="card-footer text-muted">
-                    <center><b><p id="dfgh">Total Tickets Price</p></b></center>
-                    </div>
-                    <br />
-                    </form>
-                </div>
-                </div>
 
-            <br />
-            <br />
-            
-          
-            
 <div class="container">
-  <form asp-action="Edit">
+  <div class="row Ccen">
+    <div class="ChomemaindivMain">
+        <h2 class="pageName">Calculate Price</h2>
+
+        <form onSubmit="cal(event)">
+            <div class="form-group">
+                <label class="control-label">Ticket Price</label>
+                <input class="form-control" id="TicketsPrice" name="TicketsPrice" />
+            </div>
+                    
+            <center>
+                <input class="btn btn-success" type="submit" value="Calculate" />
+            </center>
+            <br />
+                    
+            <div class="card-footer text-muted">
+            <center>
+                <b><p id="dfgh">Total Tickets Price</p></b>
+            </center>
+            </div>
+
+        </form>
+
+    </div>
+    
+  </div>
+</div>
+                       
+<div class="container">
+            <h2 class="pageName">Tickets Details</h2>
+ <form onsubmit="ChechFormTi(event)" asp-action="Edit">
     
   <div class="row">
       <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -46,7 +44,7 @@
       <input type="hidden" asp-for="Date" />
       <input type="hidden" asp-for="Time" />
 
-      <div class="col Cgh">
+      <div class="col order-last Ctidiv">
             <div class="form-group">
                 <label asp-for="PassengerName" class="control-label"></label>
                 <input type="hidden" asp-for="PassengerName" class="form-control" />
@@ -78,11 +76,8 @@
                 <span asp-validation-for="FlightName" class="text-danger"></span>
             </div>
         </div>
-        
-        
-
-        
-        <div class="col order-1 Cgh">
+                <span class="CAtab"></span>    
+        <div class="col Ctidiv">
             <div class="form-group">
                 <label asp-for="Destination" class="control-label"></label>
                 <input type="hidden" asp-for="Destination" class="form-control" />
@@ -106,43 +101,39 @@
                 <input type="hidden" asp-for="PaidPrice" class="form-control" />
                 <input asp-for="PaidPrice" class="form-control" disabled/>
                 <span asp-validation-for="PaidPrice" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="PaidRecipt" class="control-label"></label>
-                <input type="hidden" asp-for="PaidRecipt" class="form-control" />
-                <img src="~/Images/@Model.PaidRecipt" style="width:330px; height:100px;">
-                <span asp-validation-for="PaidRecipt" class="text-danger"></span>
-            </div>
-
-            
+            </div> 
+            <br>
+                <div class="form-group">
+                <center><input type="submit" value="Confirm" class="btn btn-outline-primary" style="width:200px" /></center>
+                </div>
         </div>
-    
-   
-
-        
-        <div class="col order-5 border border-dark Chm Cmn Cgh">
+                <span class="CAtab"></span>
+        <div class="col order-first Ctidiv">
             <div class="form-group">
                 <label asp-for="TicketNumber" class="control-label"></label>
-                <input asp-for="TicketNumber" class="form-control" />
+                <input asp-for="TicketNumber" id="tickets" class="form-control"/>
                 <span asp-validation-for="TicketNumber" class="text-danger"></span>
+                <div id="ticket_error" class="error hidden">Please enter a valid Tickets Number</div>
             </div>
             <div class="form-group">
                 <label asp-for="SeatNumber" class="control-label"></label>
-                <input asp-for="SeatNumber" class="form-control" />
+                <input asp-for="SeatNumber" id="seat" class="form-control"/>
                 <span asp-validation-for="SeatNumber" class="text-danger"></span>
+                <div id="seat_error" class="error hidden">Please enter a valid Seat Numeber</div>
             </div>
             <div class="form-group">
                 <label asp-for="GateNumber" class="control-label"></label>
-                <input asp-for="GateNumber" class="form-control" />
+                <input asp-for="GateNumber" id="gate" class="form-control"/>
                 <span asp-validation-for="GateNumber" class="text-danger"></span>
+                <div id="gate_error" class="error hidden">Please enter a valid Gate Number</div>
             </div>
-
-                <div class="form-group">
-                   <center><input type="submit" value="Confirm" class="btn btn-primary" /></center> 
-                </div>
+             <div class="form-group">
+                <label asp-for="PaidRecipt" class="control-label"></label>
+                <input type="hidden" asp-for="PaidRecipt" class="form-control" />
+                <img src="~/Images/@Model.PaidRecipt" style="width:330px; height:150px;">
+                <span asp-validation-for="PaidRecipt" class="text-danger"></span>
+            </div>
         </div>
-
          
     </div>
 

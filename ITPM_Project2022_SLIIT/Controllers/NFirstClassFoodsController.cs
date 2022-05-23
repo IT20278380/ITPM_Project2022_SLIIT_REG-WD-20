@@ -34,6 +34,24 @@ namespace ITPM_Project2022_SLIIT.Controllers
             return View(await _context.FirstClassFood.ToListAsync());
         }
 
+        public async Task<IActionResult> bs()
+        {
+            return RedirectToAction("Index", "NBsClassFoods");
+        }
+
+        public async Task<IActionResult> pri()
+        {
+            return RedirectToAction("Index", "NPriEconomyClassFoods");
+        }
+        public async Task<IActionResult> econo()
+        {
+            return RedirectToAction("Index", "NEconomyClassFoods");
+        }
+
+        public async Task<IActionResult> order()
+        {
+            return RedirectToAction("Index", "OrderLists");
+        }
         // GET: NFirstClassFoods/Details/5
         public async Task<IActionResult> Details(int? id)
         {
