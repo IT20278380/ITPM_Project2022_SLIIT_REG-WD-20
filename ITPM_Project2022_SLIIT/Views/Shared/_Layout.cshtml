@@ -21,12 +21,15 @@
         <h1 class="display-4 font-weight-bold">AirWorld</h1>
         <p class="font-italic mb-0">Fly Today With Us</p><br><br>
 
-        <button asp-controller="Home" asp-action="ContactUs" class="btn btn-outline-info"><b>Contact Us</b></button>
+        <a asp-action="ContactUs" class="btn btn-outline-info"><b>Contact Us</b></a>
     </div>
 </div>
         <nav class="navbar navbar-expand-lg navbar-light bg-light navfooter">
             <div class="container TfontT">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><b> -- AIR WORLD --</b></a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                <img src="https://img.icons8.com/external-others-inmotus-design/67/000000/external-air-air-planes-and-force-others-inmotus-design-10.png" style="width:35px; height:35px;"/>
+                <b>AIR WORLD</b>
+                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -61,9 +64,9 @@
             <ul class="list-inline">
                 <li class="list-inline-item"><a href="#">Home</a></li>
                 <li class="list-inline-item"><a href="#">Services</a></li>
-                <li class="list-inline-item"><a href="#">About</a></li>
-                <li class="list-inline-item"><a href="#">Terms</a></li>
-                <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+                <li class="list-inline-item"><a asp-action="AboutUs">About</a></li>
+                <li class="list-inline-item"><a asp-action="ContactUs">Terms</a></li>
+                <li class="list-inline-item"><a asp-action="ContactUs">Privacy Policy</a></li>
             </ul>
         </div>
     <footer class="footer">
