@@ -45,3 +45,16 @@
     width: 45%;
     margin: auto;
 }
+
+#noti {
+    color: white;
+    background-color: red;
+    font-size: 20px;
+    font-weight: bold;
+    width:35px;
+    height:35px;
+    padding-left:9px;
+    border: 2px solid black;
+    border-radius:50%;
+    margin-left:10px;
+}

@@ -14,12 +14,14 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using ITPM_Project2022_SLIIT.Controllers;
 using ITPM_Project2022_SLIIT.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace ITPM_Project2022_SLIIT.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
     public class LoginModel : PageModel
     {
+        public static string Pnumber { get; set; }
         private readonly UserManager<ATMSUser> _userManager;
         private readonly SignInManager<ATMSUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
@@ -96,6 +98,9 @@ namespace ITPM_Project2022_SLIIT.Areas.Identity.Pages.Account
                 uName = Input.UserName.ToString();
                 if (result.Succeeded)
                 {
+                    var user = await _context.AspNetUsers.FirstOrDefaultAsync(m => m.UserName == Input.UserName);
+                    LoginModel.Pnumber = user.PhoneNumber;
+
                     //validation
                     AspNetUsersController aspNetUsersController = new AspNetUsersController(_context);
                     string data = aspNetUsersController.Details(uName);

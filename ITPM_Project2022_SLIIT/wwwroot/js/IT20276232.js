@@ -1,6 +1,5 @@
 $(document).ready(function () {
-
-    $.get("CBookTickets/Count",
+    $.get("/CBookTickets/Count",
         function (result, status, xhr) {
             $("#noti").html(result);
         });
@@ -36,3 +35,8 @@ function ChechFormTi(event) {
         event.preventDefault();
     }
 };
+
+$(document).on("click", "#BookTicketsbtnSubmit", function (event) {
+    var data = $("#BookTick").html();
+    $("#BookTickInput").val(data);
+});

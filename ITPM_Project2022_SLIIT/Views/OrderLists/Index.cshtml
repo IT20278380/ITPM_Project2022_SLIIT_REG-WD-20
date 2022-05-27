@@ -5,14 +5,18 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
+<h2>Order Details</h2>
+<br>
+    
+    <form onsubmit="PDFGeneration(event)" asp-action="Export">
+        <input type="hidden" id="OrderInput" name="OrderInput"/>
+        <button type="submit" class="btn btn-outline-primary">Genetate PDF</button>
+    </form>
+<br>
+<div id="Order" class="table-responsive">
+<table class="table tabBor">
     <thead>
-        <tr>
+        <tr class="tanheight">
             <th>
                 @Html.DisplayNameFor(model => model.FoodName)
             </th>
@@ -34,7 +38,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.SeatNumber)
             </th>
-            <th></th>
+            <th>Confirm</th>
         </tr>
     </thead>
     <tbody>
@@ -48,7 +52,7 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Image)
-                <img src="~/Images/@item.Image" class="rounded-circle" width="50" height="50" asp-append-version="true" />
+                <img src="~/Images/@item.Image" class="rounded-circle" width="50" height="50" asp-append-version="true">
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.FlightName)
@@ -63,11 +67,10 @@
                 @Html.DisplayFor(modelItem => item.SeatNumber)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                 <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.Id">Confirm Order</a>
             </td>
         </tr>
 }
     </tbody>
 </table>
+</div>

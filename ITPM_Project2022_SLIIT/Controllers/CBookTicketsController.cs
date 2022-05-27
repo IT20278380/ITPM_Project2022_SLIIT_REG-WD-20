@@ -6,6 +6,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ITPM_Project2022_SLIIT.Models;
+using System.IO;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using iTextSharp.tool.xml;
 
 namespace ITPM_Project2022_SLIIT.Controllers
 {
@@ -161,6 +165,24 @@ namespace ITPM_Project2022_SLIIT.Controllers
             var dbresult = _context.Notification.CountAsync().Result;
             data = dbresult;
             return data;
+        }
+
+        [HttpPost]
+        [Obsolete]
+        public FileResult Export(string BookTickInput)
+        {
+            using (MemoryStream stream = new System.IO.MemoryStream())
+            {
+
+                StringReader sr = new StringReader(BookTickInput);
+                Document pdfDoc = new Document(PageSize.A4.Rotate(), 70f, 0f, 70f, 0f);
+
+                PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
+                pdfDoc.Open();
+                XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
+                pdfDoc.Close();
+                return File(stream.ToArray(), "application/pdf", "BookTickets.pdf");
+            }
         }
 
         private bool BookTicketsExists(int id)

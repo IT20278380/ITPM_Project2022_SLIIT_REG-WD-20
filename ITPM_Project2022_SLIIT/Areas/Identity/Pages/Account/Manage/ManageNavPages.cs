@@ -10,6 +10,10 @@ namespace ITPM_Project2022_SLIIT.Areas.Identity.Pages.Account.Manage
     {
         public static string Index => "Index";
 
+        public static string Tickets => "Tickets";
+
+        public static string Food => "Food";
+
         public static string Email => "Email";
 
         public static string ChangePassword => "ChangePassword";
@@ -25,6 +29,10 @@ namespace ITPM_Project2022_SLIIT.Areas.Identity.Pages.Account.Manage
         public static string TwoFactorAuthentication => "TwoFactorAuthentication";
 
         public static string IndexNavClass(ViewContext viewContext) => PageNavClass(viewContext, Index);
+
+        public static string TicketsNavClass(ViewContext viewContext) => PageNavClass(viewContext, Tickets);
+
+        public static string FoodNavClass(ViewContext viewContext) => PageNavClass(viewContext, Food);
 
         public static string EmailNavClass(ViewContext viewContext) => PageNavClass(viewContext, Email);
 

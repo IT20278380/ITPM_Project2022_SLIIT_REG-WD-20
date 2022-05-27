@@ -7,6 +7,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ITPM_Project2022_SLIIT.Models;
 using Microsoft.AspNetCore.Authorization;
+using System.IO;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using iTextSharp.tool.xml;
+using System.Text;
+using HtmlAgilityPack;
 
 namespace ITPM_Project2022_SLIIT.Controllers
 {
@@ -44,6 +50,32 @@ namespace ITPM_Project2022_SLIIT.Controllers
                 return RedirectToAction("Edit", "BookTickets", new {id = bt});
             }
             return View(bookTickets);
+        }
+
+
+        [HttpPost]
+        [Obsolete]
+        public FileResult Export(string FlightInput)
+        {
+            HtmlNode.ElementsFlags["img"] = HtmlElementFlag.Closed;
+            HtmlNode.ElementsFlags["input"] = HtmlElementFlag.Closed;
+            HtmlNode.ElementsFlags["form"] = HtmlElementFlag.Closed;
+            HtmlDocument doc = new HtmlDocument();
+            doc.OptionFixNestedTags = true;
+            doc.LoadHtml(FlightInput);
+            FlightInput = doc.DocumentNode.OuterHtml;
+
+            using (MemoryStream stream = new System.IO.MemoryStream())
+            {
+                Encoding unicode = Encoding.UTF8;
+                StringReader sr = new StringReader(FlightInput);
+                Document pdfDoc = new Document(PageSize.A4, 30f, 10f, 100f, 0f);
+                PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
+                pdfDoc.Open();
+                XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
+                pdfDoc.Close();
+                return File(stream.ToArray(), "application/pdf", "FlightLists.pdf");
+            }
         }
     }
 }

@@ -28,3 +28,8 @@ function validateemail(input_str) {
     var re = /[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$/;
     return re.test(input_str);
 }
+
+function PDF(event) {
+    var data = $("#Flight").html();
+    $("#FlightInput").val(data);
+}

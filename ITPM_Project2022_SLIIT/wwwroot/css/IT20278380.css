@@ -172,3 +172,12 @@ h5 {
     background-color: ghostwhite;
     padding: 30px;
 }
+
+.Booktickets {
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: ghostwhite;
+    margin: auto;
+    width:10%;
+    border-radius: 10px;
+}

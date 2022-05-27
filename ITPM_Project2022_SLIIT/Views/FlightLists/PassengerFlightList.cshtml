@@ -7,15 +7,27 @@
 
 <h2>Air Line Flight List</h2><br/><br/>
 
-<form method="get" asp-action="PassengerFlightList">
-    <div class="input-group container">
-      <button class="btn btn-outline-info" type="submit" id="button-addon1"> <b>Search Flight Destination</b> </button>
-      <input type="search" value="@ViewData["GetFlightDetails"]" name="flightSearch" class="form-control" placeholder="Enter Destination Country">
-    </div>
-</form>
-<br>
+<div class="container row">
+     <div class="col-sm-5 col-md-6">
+        <form method="get" asp-action="PassengerFlightList">
+            <div class="input-group container">
+              <button class="btn btn-outline-info" type="submit" id="button-addon1"> <b>Search Flight Destination</b> </button>
+              <input type="search" value="@ViewData["GetFlightDetails"]" name="flightSearch" class="form-control" placeholder="Enter Destination Country">
+            </div>
+        </form>
+        <br>
+     </div>
 
-<div class="table-responsive">
+     <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0" >
+         <form onsubmit="PDF(event)" asp-action="Export">
+            <input type="hidden" id="FlightInput" name="FlightInput"/>
+            <button type="submit" class="btn btn-outline-primary">Generate PDF</button>
+        </form>
+     </div>
+
+</div>
+
+<div id="Flight" class="table-responsive">
 <table class="table tabBor">
     <thead>
         <tr class="tanheight">
@@ -54,19 +66,19 @@
             <form  asp-action="CreateBL">
             <td>
                 @Html.DisplayFor(modelItem => item.FlightName)
-                <input type="hidden" value="@item.FlightName" name="FlightName" class="form-control" />
+                <input type="hidden" value="@item.FlightName" name="FlightName" class="form-control"/>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Date)
-                <input type="hidden" value="@item.Date" name="Date" class="form-control" />
+                <input type="hidden" value="@item.Date" name="Date" class="form-control"/>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Time)
-                <input type="hidden" value="@item.Time" name="Time" class="form-control" />
+                <input type="hidden" value="@item.Time" name="Time" class="form-control"/>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Destination)
-                <input type="hidden" value="@item.Destination" name="Destination" class="form-control" />
+                <input type="hidden" value="@item.Destination" name="Destination" class="form-control"/>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.FirstClassPrice)
@@ -81,7 +93,7 @@
                 @Html.DisplayFor(modelItem => item.EconomyClassPrice)
             </td>
             <td>
-                <input type="submit" value="Book Now" class="btn btn-outline-primary" />
+                <input type="submit" value="Book Now" class="btn btn-outline-primary"/>
             </td>         
             </form>
         </tr>

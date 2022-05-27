@@ -48,7 +48,11 @@ function Number(input_str) {
 }
 
 function time(input_str) {
-    alert(price1);
     var re = /^\d{1,2}:\d{2}([ap]m)?$/;
     return re.test(input_str);
 }
+
+$(document).on("click", "#HflightbtnSubmit", function (event) {
+    var data = $("#Hflight").html();
+    $("#HflightInput").val(data);
+});

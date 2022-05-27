@@ -33,6 +33,8 @@ namespace ITPM_Project2022_SLIIT.Areas.Identity.Pages.Account.Manage
 
         public class InputModel
         {
+            public static string Pnumber { get; set; }
+
             [Phone]
             [Display(Name = "Phone number")]
             public string PhoneNumber { get; set; }
@@ -40,6 +42,7 @@ namespace ITPM_Project2022_SLIIT.Areas.Identity.Pages.Account.Manage
 
         private async Task LoadAsync(ATMSUser user)
         {
+            InputModel.Pnumber = user.PhoneNumber;
             var userName = await _userManager.GetUserNameAsync(user);
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
 
@@ -47,7 +50,7 @@ namespace ITPM_Project2022_SLIIT.Areas.Identity.Pages.Account.Manage
 
             Input = new InputModel
             {
-                PhoneNumber = phoneNumber
+                PhoneNumber = phoneNumber,
             };
         }
 

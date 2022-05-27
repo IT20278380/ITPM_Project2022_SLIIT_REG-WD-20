@@ -88,6 +88,24 @@ namespace ITPM_Project2022_SLIIT.Controllers
             //return RedirectToAction("AboutUs", "Home");
         }
 
+        public async Task<IActionResult> Ticket(string Mnumber)
+        {
+            if (Mnumber == null)
+            {
+                return NotFound();
+            }
+
+            var bookTickets = await _context.BookTickets
+                .FirstOrDefaultAsync(m => m.MobileNumber == Mnumber);
+
+            if (bookTickets == null)
+            {
+                return NotFound();
+            }
+
+            return View(bookTickets);
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

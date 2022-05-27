@@ -8,7 +8,12 @@ using Microsoft.EntityFrameworkCore;
 using ITPM_Project2022_SLIIT.Models;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using iTextSharp.tool.xml;
 using Microsoft.AspNetCore.Http;
+using ITPM_Project2022_SLIIT.Areas.Identity.Pages.Account.Manage;
+using ITPM_Project2022_SLIIT.Areas.Identity.Pages.Account;
 
 namespace ITPM_Project2022_SLIIT.Controllers
 {
@@ -33,6 +38,10 @@ namespace ITPM_Project2022_SLIIT.Controllers
             }
 
             var bookTickets = await _context.BookTickets.FindAsync(id);
+            var Pnumber = LoginModel.Pnumber;
+
+            bookTickets.MobileNumber = Pnumber;
+
             if (bookTickets == null)
             {
                 return NotFound();
@@ -107,6 +116,24 @@ namespace ITPM_Project2022_SLIIT.Controllers
                     return RedirectToAction("Edit", "BookTickets");
                 }
             }
+            return View(bookTickets);
+        }
+
+        public async Task<IActionResult> Ticket(string Mnumber)
+        {
+            if (Mnumber == null)
+            {
+                return NotFound();
+            }
+
+            var bookTickets = await _context.BookTickets
+                .FirstOrDefaultAsync(m => m.MobileNumber == Mnumber);
+
+            if (bookTickets == null)
+            {
+                return NotFound();
+            }
+
             return View(bookTickets);
         }
 

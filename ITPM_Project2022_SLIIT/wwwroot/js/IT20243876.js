@@ -14,3 +14,8 @@ function price(input_str) {
     var re = /^[0-9]+$/;
     return re.test(input_str);
 }
+
+function PDFGeneration(event) {
+    var data = $("#Order").html();
+    $("#OrderInput").val(data);
+}

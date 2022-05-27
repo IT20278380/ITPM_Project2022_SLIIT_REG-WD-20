@@ -1,10 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using iTextSharp.tool.xml;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+
 
 namespace ITPM_Project2022_SLIIT.Models
 {
@@ -245,6 +250,23 @@ namespace ITPM_Project2022_SLIIT.Models
             return View();
         }
 
+        [HttpPost]
+        [Obsolete]
+        public FileResult Export(string HflightInput)
+        {
+            using (MemoryStream stream = new System.IO.MemoryStream())
+            {
+
+                StringReader sr = new StringReader(HflightInput);
+                Document pdfDoc = new Document(PageSize.A4.Rotate(), 70f, 0f, 70f, 0f);
+              
+                PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
+                pdfDoc.Open();
+                XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
+                pdfDoc.Close();
+                return File(stream.ToArray(), "application/pdf", "flightList.pdf");
+            }
+        }
     }
 
 }

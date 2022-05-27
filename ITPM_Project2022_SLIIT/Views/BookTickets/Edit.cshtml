@@ -39,7 +39,8 @@
             </div>
             <div class="form-group">
                 <li><label class="control-label">Mobile Number</label><label class="control-label star">*</label></li>
-                <input type="text" name="mobileNumber" id="mobileNumber" asp-for="MobileNumber" class="form-control" required/>
+                <input type="text" name="mobileNumber" id="mobileNumber" asp-for="MobileNumber" class="form-control" disabled/>
+                <input type="hidden" name="mobileNumber" id="mobileNumber" asp-for="MobileNumber" class="form-control" required/>
                  <div id="phone_error" class="error hidden">Please enter a valid phone number</div>
                 <span asp-validation-for="MobileNumber" class="text-danger"></span>
             </div>
@@ -75,7 +76,7 @@
 
             <div class="form-group">
                 <li><label class="control-label">Required Seat</label><label class="control-label star">*</label></li>
-                <input type="number" asp-for="RequiredSeat" class="form-control" />
+                <input type="number" asp-for="RequiredSeat" class="form-control" required/>
                 <span asp-validation-for="RequiredSeat" class="text-danger"></span>
             </div>
             <div class="form-group">     
